@@ -36,7 +36,7 @@ export default function ContactPage() {
       </main>
 
       {/* Contact Form Section */}
-      <section className="bg-white text-black py-20 px-6 md:px-12 w-full relative z-20 -mt-10 md:-mt-20 rounded-t-[40px]">
+      <section className="bg-white text-black py-20 px-6 md:px-12 w-full relative z-20 -mt-10 md:-mt-20">
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           
           {/* Left Side: Text and Contact Info */}
