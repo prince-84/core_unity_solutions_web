@@ -9,7 +9,7 @@ const team = [
 
 export function TeamSection() {
   return (
-    <section className="w-full bg-white text-black py-24 px-4 sm:px-8">
+    <section className="w-full bg-white text-black py-16 md:py-24 px-4 sm:px-8">
       <div className="max-w-[1300px] mx-auto flex flex-col">
         
         {/* Header Area (Left Aligned) */}

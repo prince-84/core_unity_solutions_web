@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function TestimonialSection() {
   return (
-    <section className="relative w-full max-w-[1956px] mx-auto h-[553px] flex items-center justify-center bg-black text-white px-4 overflow-hidden font-sans border-t border-white/10">
+    <section className="relative w-full max-w-[1956px] mx-auto min-h-[553px] py-16 flex items-center justify-center bg-black text-white px-4 overflow-hidden font-sans border-t border-white/10">
       
       {/* Background Zebra Pattern (Simulated with repeating gradient) */}
       <div 

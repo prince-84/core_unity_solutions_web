@@ -17,7 +17,7 @@ const clients = [
 
 export function OurClientsSection() {
   return (
-    <section className="relative w-full bg-black text-white py-24 overflow-hidden border-t border-white/5 font-sans">
+    <section className="relative w-full bg-black text-white py-16 md:py-24 overflow-hidden border-t border-white/5 font-sans">
       
       {/* Graph Paper Background */}
       <div 

@@ -26,11 +26,11 @@ export default function Home() {
 
       <ServicesSection />
       <CoreStrengthsSection />
-      <OurWorkSection />
+      <OurWorkSection title="10+ yrs of expertise in providing innovative solutions" />
       <OurClientsSection />
       <TeamSection />
       <TestimonialSection />
-      <BlogSection />
+      <BlogSection maxPosts={3} />
       <Footer />
     </main>
   );

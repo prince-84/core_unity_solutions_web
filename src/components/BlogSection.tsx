@@ -18,12 +18,32 @@ const blogPosts = [
     date: "January 10, 2022",
     category: "Technology",
     excerpt: "A fairy tale (alternative names include fairytale, fairy story, magic tale, or wonder tale) is a short story that belongs to the folklore genre.."
+  },
+  {
+    title: "Want To Succeed In Real Estate? Focus On These Habits",
+    date: "January 10, 2022",
+    category: "Technology",
+    excerpt: "A fairy tale (alternative names include fairytale, fairy story, magic tale, or wonder tale) is a short story that belongs to the folklore genre.."
+  },
+  {
+    title: "Want To Succeed In Real Estate? Focus On These Habits",
+    date: "January 10, 2022",
+    category: "Technology",
+    excerpt: "A fairy tale (alternative names include fairytale, fairy story, magic tale, or wonder tale) is a short story that belongs to the folklore genre.."
+  },
+  {
+    title: "Want To Succeed In Real Estate? Focus On These Habits",
+    date: "January 10, 2022",
+    category: "Technology",
+    excerpt: "A fairy tale (alternative names include fairytale, fairy story, magic tale, or wonder tale) is a short story that belongs to the folklore genre.."
   }
 ];
 
-export function BlogSection() {
+export function BlogSection({ maxPosts }: { maxPosts?: number }) {
+  const displayPosts = maxPosts ? blogPosts.slice(0, maxPosts) : blogPosts;
+
   return (
-    <section className="w-full bg-[#f9f9f9] text-black py-24 px-4 sm:px-8">
+    <section className="w-full bg-[#f9f9f9] text-black py-16 md:py-24 px-4 sm:px-8">
       <div className="max-w-[1300px] mx-auto flex flex-col">
         
         {/* Header Area (Left Aligned) */}
@@ -42,7 +62,7 @@ export function BlogSection() {
 
         {/* Blog Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post, index) => (
+          {displayPosts.map((post, index) => (
             <div 
               key={index} 
               className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition-shadow duration-300 group"
@@ -53,8 +73,15 @@ export function BlogSection() {
                   src="/blog_image.png" 
                   alt="Blog Cover" 
                   fill 
-                  className="object-contain sm:object-cover group-hover:scale-105 transition-transform duration-500" 
+                  className="object-contain sm:object-cover transition-transform duration-500" 
                 />
+                
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+                  <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#8c1c24]/90 flex items-center justify-center text-white text-center text-[13px] sm:text-[15px] font-medium leading-tight transform scale-75 group-hover:scale-100 transition-transform duration-300 shadow-xl">
+                    View Full<br />Blog
+                  </div>
+                </div>
               </div>
 
               {/* Content Area */}

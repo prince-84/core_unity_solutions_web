@@ -46,18 +46,18 @@ function StrengthCard({ item, index, side }: { item: typeof strengths[0], index:
   // Right column (images are on the left): even index (0, 2) shift left towards images. odd index (1) shift right.
   const isShiftedToImage = index % 2 === 0;
   
-  let marginClass = "";
+  let marginClass = "mx-auto";
   if (side === "left") {
-    marginClass = isShiftedToImage ? "ml-auto mr-0" : "mr-auto ml-0";
+    marginClass = isShiftedToImage ? "lg:ml-auto lg:mr-0 mx-auto" : "lg:mr-auto lg:ml-0 mx-auto";
   } else {
-    marginClass = isShiftedToImage ? "mr-auto ml-0" : "ml-auto mr-0";
+    marginClass = isShiftedToImage ? "lg:mr-auto lg:ml-0 mx-auto" : "lg:ml-auto lg:mr-0 mx-auto";
   }
 
-  // Numbers face the images
-  const numberPositionClass = side === "left" ? "-top-12 -right-4" : "-top-12 -left-6";
+  // Numbers face the images on desktop, on mobile they default to right
+  const numberPositionClass = side === "left" ? "-top-12 right-0 lg:-right-4" : "-top-12 right-0 lg:-left-6 lg:right-auto";
 
   return (
-    <div className={`relative w-[90%] mb-12 lg:mb-16 ${marginClass}`}>
+    <div className={`relative w-[90%] sm:w-[80%] lg:w-[90%] mb-12 lg:mb-16 ${marginClass}`}>
       {/* Large background number facing the image */}
       <div className={`absolute text-8xl font-bold text-white/20 select-none pointer-events-none font-sans z-0 ${numberPositionClass}`}>
         {item.id}

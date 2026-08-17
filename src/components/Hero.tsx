@@ -1,7 +1,7 @@
 export function Hero() {
   return (
     <div className="flex flex-col items-center justify-center text-center mt-12 max-w-5xl mx-auto px-4 z-20 relative">
-      <h1 className="text-[55px] font-bold text-white leading-[1.1] mb-6">
+      <h1 className="text-4xl md:text-[55px] font-bold text-white leading-[1.2] md:leading-[1.1] mb-6">
         We are a bold and innovative digital<br className="hidden md:block" /> agency based in the UAE.
       </h1>
       

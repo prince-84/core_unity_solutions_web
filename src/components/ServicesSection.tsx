@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function ServicesSection() {
   return (
-    <section className="relative w-full bg-white text-black py-24 px-8 overflow-hidden z-20">
+    <section className="relative w-full bg-white text-black py-16 md:py-24 px-4 sm:px-8 overflow-hidden z-20">
       {/* Background Red Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[100px] bg-red-100/50 blur-[80px] pointer-events-none rounded-full" />
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[150px] bg-red-200/50 blur-[100px] pointer-events-none rounded-full" />
