@@ -51,7 +51,7 @@ export default function ContactPage() {
             <div className="flex flex-col gap-5">
               
               {/* Phone & Email Box */}
-              <div className="border border-gray-200 rounded-[20px] flex items-center p-6 bg-[#fafafa]">
+              <div className="border border-gray-200 rounded-[20px] flex items-center p-6 bg-[#fafafa] transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:border-red-200 cursor-pointer group">
                 {/* Phone */}
                 <div className="flex-1 flex flex-col items-center justify-center text-center px-4">
                   <div className="w-8 h-8 mb-3 flex items-center justify-center">
@@ -75,7 +75,7 @@ export default function ContactPage() {
               </div>
 
               {/* Address Box */}
-              <div className="border border-gray-200 rounded-[20px] flex items-center p-6 bg-[#fafafa] gap-6">
+              <div className="border border-gray-200 rounded-[20px] flex items-center p-6 bg-[#fafafa] gap-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:border-red-200 cursor-pointer group">
                 <div className="w-10 h-10 shrink-0 ml-4 flex items-center justify-center">
                   <img src="/loc_logo.png" alt="Address" className="w-full h-full object-contain" />
                 </div>

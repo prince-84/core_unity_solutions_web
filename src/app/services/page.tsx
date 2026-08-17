@@ -1,4 +1,6 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { ArrowUpRight } from 'lucide-react';
 import { Footer } from '@/components/Footer';
@@ -10,27 +12,25 @@ export default function ServicesPage() {
       num: "01",
       title: "Branding",
       desc: "Our agency combines creativity and strategy to build powerful brand identities that communicate your vision, and grow meaningful customer connections.",
-      active: true,
     },
     {
       num: "02",
       title: "Digital Marketing",
       desc: "Our digital marketing solutions help you connect with your customers through SEO, social content marketing, and paid advertising.",
-      active: false,
     },
     {
       num: "03",
       title: "Design & Creatives",
       desc: "We create compelling visuals that capture attention, strengthen your brand identity, and communicate your message effectively across platforms.",
-      active: false,
     },
     {
       num: "04",
       title: "Design",
       desc: "Our design solutions help to create memorable experiences that leave a lasting impression.",
-      active: false,
     }
   ];
+
+  const [hoveredService, setHoveredService] = useState("01");
 
   return (
     <div className="bg-black text-white relative flex flex-col font-sans">
@@ -78,38 +78,41 @@ export default function ServicesPage() {
 
           {/* Services List */}
           <div className="w-full flex flex-col">
-            {servicesList.map((service) => (
+            {servicesList.map((service) => {
+              const isActive = hoveredService === service.num;
+              return (
               <div 
                 key={service.num} 
-                className={`flex flex-col md:flex-row md:items-center justify-between p-8 md:p-10 ${
-                  service.active 
-                    ? 'bg-[#c52833] text-white rounded-xl shadow-lg mt-0 md:mt-2 relative z-10' 
-                    : 'bg-transparent text-gray-900 border-b border-gray-200'
+                onMouseEnter={() => setHoveredService(service.num)}
+                className={`flex flex-col md:flex-row md:items-center justify-between p-8 md:p-10 transition-all duration-300 ${
+                  isActive 
+                    ? 'bg-[#c52833] text-white rounded-xl shadow-lg mt-0 md:mt-2 relative z-10 scale-[1.02]' 
+                    : 'bg-transparent text-gray-900 border-b border-gray-200 hover:bg-gray-50/50'
                 }`}
               >
                 {/* Left side: Num & Title */}
                 <div className="flex items-center gap-6 md:gap-16 md:w-[45%] mb-6 md:mb-0">
-                  <span className={`text-2xl font-medium ${service.active ? 'text-white' : 'text-gray-500'}`}>
+                  <span className={`text-2xl font-medium transition-colors duration-300 ${isActive ? 'text-white' : 'text-gray-500'}`}>
                     {service.num}
                   </span>
-                  <h3 className="text-3xl md:text-4xl font-bold tracking-tight">
+                  <h3 className={`text-3xl md:text-4xl font-bold tracking-tight transition-colors duration-300 ${isActive ? 'text-white' : 'text-gray-900'}`}>
                     {service.title}
                   </h3>
                 </div>
                 
                 {/* Right side: Desc & Icon */}
                 <div className="md:w-[55%] flex items-center justify-between gap-6 md:gap-10">
-                  <p className={`text-[15px] md:text-[15.5px] leading-relaxed flex-1 ${service.active ? 'text-red-50' : 'text-gray-500'}`}>
+                  <p className={`text-[15px] md:text-[15.5px] leading-relaxed flex-1 transition-colors duration-300 ${isActive ? 'text-red-50' : 'text-gray-500'}`}>
                     {service.desc}
                   </p>
-                  <button className={`shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-transform hover:scale-105 ${
-                    service.active ? 'bg-white text-[#c52833]' : 'bg-[#404040] text-white'
+                  <button className={`shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all hover:scale-110 ${
+                    isActive ? 'bg-white text-[#c52833]' : 'bg-[#404040] text-white'
                   }`}>
-                    <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6" strokeWidth={service.active ? 2.5 : 2} />
+                    <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6" strokeWidth={isActive ? 2.5 : 2} />
                   </button>
                 </div>
               </div>
-            ))}
+            )})}
           </div>
 
           {/* View All Button */}
@@ -369,7 +372,7 @@ export default function ServicesPage() {
           </div>
 
           {/* CTA Banner */}
-          <div className="mt-24 w-full bg-[#c52833] rounded-2xl flex flex-col md:flex-row items-center justify-between p-10 md:p-14 shadow-lg overflow-hidden relative">
+          <div className="mt-24 w-full bg-[#c52833] rounded-2xl flex flex-col md:flex-row items-center justify-between p-10 md:p-14 shadow-lg overflow-hidden relative transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl">
             <div className="text-white mb-8 md:mb-0 relative z-10 text-center md:text-left">
               <h3 className="text-3xl md:text-[34px] font-bold mb-3 tracking-tight">Ready to grow your brand?</h3>
               <p className="text-red-100 text-[15px] font-light">Let's build a strategy that delivers real results.</p>

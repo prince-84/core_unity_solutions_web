@@ -197,7 +197,7 @@ export default function CaseStudyDetailPage() {
       </section>
 
       {/* CTA Banner (Full Width, 170px Height) */}
-      <div className="w-full bg-[#c52833] h-auto md:h-[170px] py-8 md:py-0 px-6 sm:px-12 md:px-20 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl relative overflow-hidden z-20">
+      <div className="w-full bg-[#c52833] h-auto md:h-[170px] py-8 md:py-0 px-6 sm:px-12 md:px-20 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl relative overflow-hidden z-20 transition-transform duration-300 hover:scale-[1.01] cursor-pointer">
         {/* Subtle gradient overlay for depth */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent pointer-events-none" />
         

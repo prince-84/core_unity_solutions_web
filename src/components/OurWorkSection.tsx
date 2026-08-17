@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const categories = [
   { name: "Website", active: false },
-  { name: "Mobile App", active: true },
+  { name: "Mobile App", active: false },
   { name: "SMM", active: false },
   { name: "PPC", active: false },
   { name: "PRINT", active: false },
@@ -37,7 +37,7 @@ export function OurWorkSection({ maxRows = 1, title }: { maxRows?: number, title
           {categories.map((cat) => (
             <button 
               key={cat.name} 
-              className={`text-sm md:text-base font-medium transition-colors ${cat.active ? "text-red-600" : "text-gray-700 hover:text-black"}`}
+              className={`text-sm md:text-base font-medium transition-colors ${cat.active ? "text-red-600" : "text-gray-700 hover:text-red-600"}`}
             >
               {cat.name}
             </button>

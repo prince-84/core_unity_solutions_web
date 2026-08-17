@@ -227,8 +227,8 @@ export default function SocialMediaMarketingPage() {
         </div>
 
         {/* Red Banner Bottom */}
-        <div className="w-full bg-[#cc2936] py-14 px-6 relative z-10">
-          <div className="max-w-[1300px] mx-auto w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div className="w-full bg-[#cc2936] py-14 px-6 relative z-10 transition-all duration-300 hover:opacity-95 hover:shadow-inner cursor-pointer group">
+          <div className="max-w-[1300px] mx-auto w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-8 transition-transform duration-300 group-hover:scale-[1.01]">
             <div className="flex flex-col">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight">
                 Ready to grow your brand?
@@ -344,7 +344,7 @@ export default function SocialMediaMarketingPage() {
           </div>
 
           {/* Bottom Red Banner */}
-          <div className="w-full max-w-[1100px] mx-auto bg-[#c52833] rounded-xl flex flex-col md:flex-row items-center justify-between p-10 md:p-12 shadow-lg">
+          <div className="w-full max-w-[1100px] mx-auto bg-[#c52833] rounded-xl flex flex-col md:flex-row items-center justify-between p-10 md:p-12 shadow-lg transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl">
             <div className="text-white mb-6 md:mb-0 text-center md:text-left">
               <h3 className="text-[28px] md:text-[32px] font-bold mb-2 tracking-tight">Ready to grow your brand?</h3>
               <p className="text-red-100 text-[16px] font-light">Let's build a strategy that delivers real results.</p>
