@@ -1,6 +1,11 @@
 import Image from "next/image";
 
-export function EarthGlobe() {
+export function EarthGlobe({ image }: { image?: string | null }) {
+  // If no image is provided from the CMS, do not render the globe section at all
+  if (!image) return null;
+
+  const globeSrc = `http://127.0.0.1:8000/storage/${image}`;
+
   return (
     <div className="relative flex justify-center mt-4 overflow-hidden w-full h-[220px]">
       {/* Gradient glow underneath earth */}
@@ -10,7 +15,7 @@ export function EarthGlobe() {
       <div className="absolute -top-12 flex justify-center animate-spin-slow">
         {/* The earth image sits partially below the viewport bottom, so we clip it with height in the parent container. */}
         <Image 
-          src="/earth_globe.png" 
+          src={globeSrc} 
           alt="Earth Globe" 
           width={600} 
           height={600}

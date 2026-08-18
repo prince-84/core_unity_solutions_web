@@ -1,6 +1,77 @@
 import Image from "next/image";
 
-export function ServicesSection() {
+export type ContentCard = {
+  icon: string;
+  title: string;
+  description: string;
+  mockup_image: string;
+};
+
+export type LinksCard = {
+  background_image: string;
+  title_highlight: string;
+  title_main: string;
+  links: { label: string }[];
+};
+
+export type ServicesSectionProps = {
+  data?: {
+    mini_title: string;
+    main_title: string;
+    cards: { type: string; data: any }[];
+  } | null;
+};
+
+export function ServicesSection({ data }: ServicesSectionProps) {
+  // Use CMS data or fallback to defaults if API fails or is empty
+  const miniTitle = data?.mini_title || "Digital Marketing Services";
+  const mainTitle = data?.main_title || "How Our Agency Helps You Scale";
+  
+  const defaultCards = [
+    {
+      type: "content_card",
+      data: {
+        icon: "/webnbrand_logo.png",
+        title: "Websites & Branding",
+        description: "From branding to websites, every design is built to attract, engage, and convert.",
+        mockup_image: "/digital_image.png",
+      }
+    },
+    {
+      type: "links_card",
+      data: {
+        background_image: "/growth_bg.png",
+        title_highlight: "Growth",
+        title_main: "Strategy",
+        links: [
+          { label: "Signature Growth System" },
+          { label: "Venture Marketing" },
+          { label: "Marketing Strategy" },
+          { label: "Marketing Advisory" },
+          { label: "SEO Consulting" },
+        ]
+      }
+    },
+    {
+      type: "content_card",
+      data: {
+        icon: "/digi_logo.png",
+        title: "Digital Marketing",
+        description: "Intent-driven marketing across SEO, CRO, social media, and PR that attracts attention and drives results.",
+        mockup_image: "/marketing_image.png",
+      }
+    }
+  ];
+
+  const cards = data?.cards || defaultCards;
+
+  // Helper to resolve image paths (if from API, prepend /storage/, else use direct string)
+  const getImageUrl = (path: string) => {
+    if (!path) return '';
+    if (path.startsWith('/')) return path;
+    return `http://127.0.0.1:8000/storage/${path}`;
+  };
+
   return (
     <section className="relative w-full bg-white text-black py-16 md:py-24 px-4 sm:px-8 overflow-hidden z-20">
       {/* Background Red Glow */}
@@ -14,68 +85,63 @@ export function ServicesSection() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600 shadow-[0_0_10px_3px_rgba(220,38,38,0.5)]"></span>
             </span>
-            Digital Marketing Services
+            {miniTitle}
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-red-600 tracking-tight">
-            How Our Agency Helps You Scale
+            {mainTitle}
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full items-stretch">
-          {/* Card 1 */}
-          <div className="flex flex-col items-center bg-white rounded-xl border border-gray-200 pt-10 pb-8 px-8 shadow-[0_4px_30px_rgba(0,0,0,0.03)] overflow-hidden text-center">
-            <div className="flex flex-col items-center">
-              <div className="w-24 h-24 mb-6">
-                <Image src="/webnbrand_logo.png" alt="Websites & Branding Logo" width={96} height={96} className="w-full h-full object-contain" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 uppercase leading-tight">Websites &<br />Branding</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-4">
-                From branding to websites, every design is built to attract, engage, and convert.
-              </p>
-            </div>
-            <div className="w-full relative px-2">
-              <Image src="/digital_image.png" alt="Website on laptop" width={400} height={300} className="w-full h-auto object-contain drop-shadow-2xl" />
-            </div>
-          </div>
+          {cards.map((card, index) => {
+            if (card.type === "content_card") {
+              const c = card.data as ContentCard;
+              return (
+                <div key={index} className="flex flex-col items-center bg-white rounded-xl border border-gray-200 pt-10 pb-8 px-8 shadow-[0_4px_30px_rgba(0,0,0,0.03)] overflow-hidden text-center h-full">
+                  <div className="flex flex-col items-center flex-grow w-full">
+                    <div className="w-24 h-24 mb-6 relative">
+                      <Image src={getImageUrl(c.icon)} alt={c.title || 'icon'} fill className="object-contain" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4 uppercase leading-tight" dangerouslySetInnerHTML={{ __html: (c.title || '').replace(' & ', ' &<br />') }}></h3>
+                    <p className="text-gray-500 text-sm leading-relaxed mb-8">
+                      {c.description}
+                    </p>
+                  </div>
+                  <div className="w-full relative px-2 mt-auto">
+                    <Image src={getImageUrl(c.mockup_image)} alt="Mockup" width={400} height={300} className="w-full h-auto object-contain drop-shadow-2xl" />
+                  </div>
+                </div>
+              );
+            }
 
-          {/* Card 2 */}
-          <div className="relative flex flex-col items-center justify-center rounded-xl overflow-hidden pt-12 pb-12 px-8 shadow-xl text-center min-h-[500px] border border-gray-800">
-            <div className="absolute inset-0 z-0">
-              <Image src="/growth_bg.png" alt="Growth Background" fill className="object-cover opacity-40 grayscale" />
-              <div className="absolute inset-0 bg-black/80" />
-            </div>
-            <div className="relative z-10 flex flex-col items-center w-full h-full justify-start mt-6">
-              <div className="mb-10 text-2xl font-black uppercase tracking-widest text-white leading-tight">
-                <span className="text-red-600 block">Growth</span>
-                <span>Strategy</span>
-              </div>
-              
-              <div className="flex flex-col gap-3 w-full max-w-[280px]">
-                <div className="bg-gradient-to-r from-red-900/60 via-red-700 to-red-900/60 border border-red-500/50 text-white rounded-full py-3 px-6 text-sm font-semibold shadow-[0_0_15px_rgba(220,38,38,0.4)] transition-transform hover:scale-105 cursor-pointer">Signature Growth System</div>
-                <div className="bg-gradient-to-r from-red-950/60 via-red-800/80 to-red-950/60 border border-red-500/30 text-white rounded-full py-3 px-6 text-sm font-semibold transition-transform hover:scale-105 cursor-pointer">Venture Marketing</div>
-                <div className="bg-gradient-to-r from-red-950/60 via-red-800/80 to-red-950/60 border border-red-500/30 text-white rounded-full py-3 px-6 text-sm font-semibold transition-transform hover:scale-105 cursor-pointer">Marketing Strategy</div>
-                <div className="bg-gradient-to-r from-red-950/60 via-red-800/80 to-red-950/60 border border-red-500/30 text-white rounded-full py-3 px-6 text-sm font-semibold transition-transform hover:scale-105 cursor-pointer">Marketing Advisory</div>
-                <div className="bg-gradient-to-r from-red-950/60 via-red-800/80 to-red-950/60 border border-red-500/30 text-white rounded-full py-3 px-6 text-sm font-semibold transition-transform hover:scale-105 cursor-pointer">SEO Consulting</div>
-              </div>
-            </div>
-          </div>
+            if (card.type === "links_card") {
+              const c = card.data as LinksCard;
+              return (
+                <div key={index} className="relative flex flex-col items-center justify-center rounded-xl overflow-hidden pt-12 pb-12 px-8 shadow-xl text-center min-h-[500px] border border-gray-800 h-full">
+                  <div className="absolute inset-0 z-0">
+                    <Image src={getImageUrl(c.background_image)} alt="Growth Background" fill className="object-cover opacity-40 grayscale" />
+                    <div className="absolute inset-0 bg-black/80" />
+                  </div>
+                  <div className="relative z-10 flex flex-col items-center w-full h-full justify-start mt-6">
+                    <div className="mb-10 text-2xl font-black uppercase tracking-widest text-white leading-tight">
+                      <span className="text-red-600 block">{c.title_highlight}</span>
+                      <span>{c.title_main}</span>
+                    </div>
+                    
+                    <div className="flex flex-col gap-3 w-full max-w-[280px]">
+                      {c.links?.map((link, idx) => (
+                        <div key={idx} className="bg-gradient-to-r from-red-950/60 via-red-800/80 to-red-950/60 border border-red-500/30 text-white rounded-full py-3 px-6 text-sm font-semibold transition-transform hover:scale-105 cursor-pointer">
+                          {link.label}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
 
-          {/* Card 3 */}
-          <div className="flex flex-col items-center bg-white rounded-xl border border-gray-200 pt-10 pb-8 px-8 shadow-[0_4px_30px_rgba(0,0,0,0.03)] overflow-hidden text-center">
-            <div className="flex flex-col items-center">
-              <div className="w-24 h-24 mb-6">
-                <Image src="/digi_logo.png" alt="Digital Marketing Logo" width={96} height={96} className="w-full h-full object-contain" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 uppercase leading-tight">Digital<br />Marketing</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-4">
-                Intent-driven marketing across SEO, CRO, social media, and PR that attracts attention and drives results.
-              </p>
-            </div>
-            <div className="w-full relative px-2">
-              <Image src="/marketing_image.png" alt="Digital Marketing" width={400} height={300} className="w-full h-auto object-contain drop-shadow-2xl" />
-            </div>
-          </div>
-
+            return null;
+          })}
         </div>
       </div>
     </section>
