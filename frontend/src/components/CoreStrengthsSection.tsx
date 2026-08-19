@@ -86,16 +86,21 @@ function StrengthCard({ item, index, side }: { item: typeof strengths[0], index:
 export function CoreStrengthsSection() {
   return (
     <section className="relative w-full bg-[#0B0B0B] text-white py-24 px-8 overflow-hidden z-20">
-      {/* Optional subtle background glow */}
-      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-red-900/10 blur-[150px] rounded-full pointer-events-none mix-blend-screen" />
-      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-red-900/10 blur-[150px] rounded-full pointer-events-none mix-blend-screen" />
+      {/* Right side background image & glow */}
+      <div className="absolute -right-48 top-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none mix-blend-lighten z-0">
+        <Image src="/bg_image.png" alt="Background Pattern" fill className="object-contain opacity-20" />
+      </div>
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-red-900/20 blur-[150px] rounded-full pointer-events-none mix-blend-screen z-0" />
+
+      {/* Optional subtle background glow left side */}
+      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-red-900/10 blur-[150px] rounded-full pointer-events-none mix-blend-screen z-0" />
 
       <div className="max-w-[1300px] mx-auto flex flex-col items-center relative z-10">
         
         {/* Header Area */}
         <div className="flex flex-col items-center text-center mb-20 w-full max-w-3xl">
           <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-4 flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-red-600"></span>
+            <span className="w-2 h-2 rounded-full bg-red-600 shadow-[0_0_8px_3px_rgba(220,38,38,0.7)]"></span>
             Our Core Strengths
           </p>
           <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
@@ -104,7 +109,7 @@ export function CoreStrengthsSection() {
         </div>
 
         {/* 3-Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-4 lg:gap-8 w-full items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-4 lg:gap-8 w-full items-stretch">
           
           {/* Left Column (01, 02, 03) */}
           <div className="flex flex-col w-full px-4 lg:px-0 mt-8">
@@ -114,20 +119,20 @@ export function CoreStrengthsSection() {
           </div>
 
           {/* Center Column (Collage) */}
-          <div className="flex items-start justify-center w-full px-4 lg:px-2 py-8 lg:py-0">
-            <div className="grid grid-cols-2 gap-4 w-full max-w-md mx-auto relative">
+          <div className="flex items-stretch justify-center w-full px-4 lg:px-2 py-8 lg:py-0 h-full">
+            <div className="grid grid-cols-2 gap-4 w-full max-w-md mx-auto h-full">
               {/* Left Column: 1, 2, 3 */}
-              <div className="flex flex-col gap-4">
-                <Image src="/clip_1_group.png" alt="Marketing Funnels" width={300} height={400} className="w-full h-auto rounded-2xl shadow-[0_0_15px_rgba(220,38,38,0.1)] border border-white/10 object-cover hover:scale-[1.02] transition-transform" />
-                <Image src="/clip_2_group.png" alt="Summer Collection" width={300} height={300} className="w-full h-auto rounded-2xl shadow-[0_0_15px_rgba(220,38,38,0.1)] border border-white/10 object-cover hover:scale-[1.02] transition-transform" />
-                <Image src="/clip_3_group.png" alt="Team" width={300} height={150} className="w-full h-auto rounded-2xl shadow-[0_0_15px_rgba(220,38,38,0.1)] border border-white/10 object-cover hover:scale-[1.02] transition-transform" />
+              <div className="flex flex-col gap-4 h-full">
+                <Image src="/clip_1_group.png?v=2" alt="Marketing Funnels" width={600} height={800} unoptimized className="w-full flex-1 rounded-2xl shadow-[0_0_15px_rgba(220,38,38,0.1)] border border-white/10 object-cover hover:scale-[1.02] transition-transform" />
+                <Image src="/clip_2_group.png?v=2" alt="Summer Collection" width={600} height={800} unoptimized className="w-full flex-1 rounded-2xl shadow-[0_0_15px_rgba(220,38,38,0.1)] border border-white/10 object-cover hover:scale-[1.02] transition-transform" />
+                <Image src="/clip_3_group.png?v=2" alt="Team" width={600} height={800} unoptimized className="w-full h-[70px] flex-none rounded-2xl shadow-[0_0_15px_rgba(220,38,38,0.1)] border border-white/10 object-cover hover:scale-[1.02] transition-transform" />
               </div>
 
               {/* Right Column: 4, 5, 6 */}
-              <div className="flex flex-col gap-4">
-                <Image src="/clip_4_group.png" alt="Business Woman" width={300} height={150} className="w-full h-auto rounded-2xl shadow-[0_0_15px_rgba(220,38,38,0.1)] border border-white/10 object-cover hover:scale-[1.02] transition-transform" />
-                <Image src="/clip_5_group.png" alt="Tech Products" width={300} height={400} className="w-full h-auto rounded-2xl shadow-[0_0_15px_rgba(220,38,38,0.1)] border border-white/10 object-cover hover:scale-[1.02] transition-transform" />
-                <Image src="/clip_6_group.png" alt="Fitness Marketing" width={300} height={400} className="w-full h-auto rounded-2xl shadow-[0_0_15px_rgba(220,38,38,0.1)] border border-white/10 object-cover hover:scale-[1.02] transition-transform" />
+              <div className="flex flex-col gap-4 h-full">
+                <Image src="/clip_4_group.png?v=2" alt="Business Woman" width={600} height={800} unoptimized className="w-full h-[70px] flex-none rounded-2xl shadow-[0_0_15px_rgba(220,38,38,0.1)] border border-white/10 object-cover hover:scale-[1.02] transition-transform" />
+                <Image src="/clip_5_group.png?v=2" alt="Tech Products" width={600} height={800} unoptimized className="w-full flex-1 rounded-2xl shadow-[0_0_15px_rgba(220,38,38,0.1)] border border-white/10 object-cover hover:scale-[1.02] transition-transform" />
+                <Image src="/clip_6_group.png?v=2" alt="Fitness Marketing" width={600} height={800} unoptimized className="w-full flex-1 rounded-2xl shadow-[0_0_15px_rgba(220,38,38,0.1)] border border-white/10 object-cover hover:scale-[1.02] transition-transform" />
               </div>
             </div>
           </div>

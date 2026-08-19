@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const blogPosts = [
   {
@@ -63,7 +64,8 @@ export function BlogSection({ maxPosts }: { maxPosts?: number }) {
         {/* Blog Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayPosts.map((post, index) => (
-            <div 
+            <Link 
+              href="/blog/detail"
               key={index} 
               className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition-shadow duration-300 group"
             >
@@ -112,7 +114,7 @@ export function BlogSection({ maxPosts }: { maxPosts?: number }) {
                 </p>
               </div>
 
-            </div>
+            </Link>
           ))}
         </div>
 

@@ -5,6 +5,7 @@ import { Navbar } from '@/components/Navbar';
 import { ArrowUpRight } from 'lucide-react';
 import { Footer } from '@/components/Footer';
 import Link from 'next/link';
+import { OurClientsSection } from '@/components/OurClientsSection';
 
 export default function ServicesPage() {
   const servicesList = [
@@ -48,7 +49,7 @@ export default function ServicesPage() {
       <main className="h-[550px] flex flex-col items-center justify-center relative z-10 px-4">
         
         <div className="flex items-center justify-center gap-3 mb-6 mt-16">
-          <div className="w-2.5 h-2.5 bg-red-600 rounded-full" />
+          <div className="w-2.5 h-2.5 bg-red-600 rounded-full shadow-[0_0_8px_3px_rgba(220,38,38,0.7)]" />
           <h1 className="text-3xl md:text-4xl font-bold tracking-wide text-white">Services We Offer</h1>
         </div>
         
@@ -126,85 +127,15 @@ export default function ServicesPage() {
       </section>
 
       {/* Third Section: Our Clients */}
-      <section className="relative bg-[#020202] text-white py-24 overflow-hidden border-t border-white/5">
-        {/* Grid Background Pattern */}
-        <div 
-          className="absolute inset-0 z-0 opacity-100 pointer-events-none"
-          style={{
-            backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.15) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px)`,
-            backgroundSize: '2rem 2rem',
-            backgroundPosition: 'center top'
-          }}
-        />
-        
-        {/* Red Center Glow */}
-        <div 
-          className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] max-w-5xl h-[800px] pointer-events-none z-0"
-          style={{
-            background: 'radial-gradient(circle at center, rgba(160, 10, 15, 0.4) 0%, transparent 60%)',
-            filter: 'blur(60px)'
-          }}
-        />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
-          
-          {/* Header */}
-          <div className="flex flex-col items-center text-center mb-16">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="relative">
-                <div className="absolute inset-0 bg-[#c52833] blur-[3px] rounded-full scale-[1.8] opacity-70" />
-                <div className="w-2.5 h-2.5 bg-[#c52833] rounded-full relative z-10" />
-              </div>
-              <span className="text-sm tracking-wide text-gray-300 ml-1">Our Clients</span>
-            </div>
-            <h2 className="text-3xl md:text-5xl lg:text-[54px] font-bold max-w-4xl leading-tight">
-              5-Star Rated, Works <br className="hidden md:block" /> with CoreUnity Solutions
-            </h2>
-          </div>
-
-          {/* Logos Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mt-20 relative">
-            
-            {/* Top faded gradient lines for extra grid effect */}
-            <div className="absolute inset-0 pointer-events-none" style={{
-               background: 'linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px)',
-               backgroundSize: '20% 100%'
-            }}></div>
-
-            {/* 9 Logo Placeholders */}
-            {Array.from({ length: 9 }).map((_, i) => (
-              <div 
-                key={i} 
-                className={`aspect-[3/2] flex flex-col items-center justify-center p-6 transition-colors hover:bg-white/5 cursor-pointer
-                  ${(i + 1) % 5 !== 0 ? 'border-r border-white/[0.04]' : ''}
-                  ${i < 5 ? 'border-b border-white/[0.04]' : ''}
-                `}
-              >
-                <span className="text-white/20 text-sm tracking-wider font-medium">LOGO {i + 1}</span>
-              </div>
-            ))}
-            
-            {/* Globe Item (Index 9) */}
-            <div className={`aspect-[3/2] flex flex-col items-center justify-center p-6 transition-colors hover:bg-white/5 cursor-pointer`}>
-              <div className="w-16 h-16 bg-white/10 rounded-full mb-4 flex items-center justify-center overflow-hidden">
-                <span className="text-white/30 text-xs">Globe</span>
-              </div>
-              <p className="text-sm text-center text-gray-300 leading-snug">
-                500+ Clients <br /> worldwide
-              </p>
-            </div>
-          </div>
-          
-        </div>
-      </section>
+      <OurClientsSection />
 
       {/* Fourth Section: Industries We Serve */}
       <section className="bg-white text-black py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden">
         {/* Subtle white/gray zebra wave background */}
         <div 
-          className="absolute inset-0 z-0 opacity-40" 
+          className="absolute inset-0 z-0 opacity-100" 
           style={{
-            backgroundImage: `url("/zebra_bg.svg")`,
+            backgroundImage: `url("/white_bg.png")`,
             backgroundSize: 'cover',
             backgroundPosition: 'center center'
           }}
@@ -356,10 +287,10 @@ export default function ServicesPage() {
                 <div className="relative w-12 h-12 shrink-0">
                   <img src="/redbg.png" alt="red bg" className="absolute -left-1.5 -bottom-1.5 w-full h-full object-cover" />
                   <img src="/blackbg.png" alt="black bg" className="absolute inset-0 w-full h-full object-cover" />
-                  <div className="absolute inset-0 flex items-center justify-center p-2.5 relative">
-                    <img src="/res_table_img.png" alt="Table" className="w-4 h-4 absolute top-1 left-1/2 -translate-x-1/2 object-contain filter invert brightness-0" />
-                    <img src="/rest_chair_img.png" alt="Chair 1" className="w-3.5 h-3.5 absolute left-1.5 top-3.5 object-contain filter invert brightness-0" />
-                    <img src="/rest_chair_img2.png" alt="Chair 2" className="w-3.5 h-3.5 absolute right-1.5 top-3.5 object-contain filter invert brightness-0" />
+                  <div className="absolute inset-0 flex items-center justify-center gap-[2px]">
+                    <img src="/rest_chair_img2.png" alt="Chair left" className="w-3.5 h-3.5 object-contain filter invert brightness-0 mt-1" />
+                    <img src="/res_table_img.png" alt="Table" className="w-4 h-4 object-contain filter invert brightness-0 mb-1" />
+                    <img src="/rest_chair_img.png" alt="Chair right" className="w-3.5 h-3.5 object-contain filter invert brightness-0 mt-1" />
                   </div>
                 </div>
                 <h3 className="font-bold text-[#1f1f1f] text-[17px]">Restaurant</h3>
@@ -377,9 +308,9 @@ export default function ServicesPage() {
               <h3 className="text-3xl md:text-[34px] font-bold mb-3 tracking-tight">Ready to grow your brand?</h3>
               <p className="text-red-100 text-[15px] font-light">Let's build a strategy that delivers real results.</p>
             </div>
-            <button className="relative z-10 bg-white text-[#c52833] font-bold px-8 py-4 rounded-md hover:bg-gray-50 transition-colors flex items-center gap-2">
+            <Link href="/contact" className="relative z-10 bg-white text-[#c52833] font-bold px-8 py-4 rounded-md hover:bg-gray-50 transition-colors flex items-center gap-2">
               Connect with us <span className="font-normal">&rarr;</span>
-            </button>
+            </Link>
           </div>
 
         </div>
@@ -437,9 +368,9 @@ export default function ServicesPage() {
         
         {/* Background Zebra Pattern */}
         <div 
-          className="absolute inset-0 z-0 opacity-40 pointer-events-none"
+          className="absolute inset-0 z-0 opacity-100 pointer-events-none"
           style={{
-            backgroundImage: `url("/zebra_bg.svg")`,
+            backgroundImage: `url("/white_bg.png")`,
             backgroundSize: 'cover',
             backgroundPosition: 'center center'
           }}

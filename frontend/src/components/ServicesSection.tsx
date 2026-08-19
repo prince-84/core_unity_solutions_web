@@ -14,20 +14,11 @@ export type LinksCard = {
   links: { label: string }[];
 };
 
-export type ServicesSectionProps = {
-  data?: {
-    mini_title: string;
-    main_title: string;
-    cards: { type: string; data: any }[];
-  } | null;
-};
-
-export function ServicesSection({ data }: ServicesSectionProps) {
-  // Use CMS data or fallback to defaults if API fails or is empty
-  const miniTitle = data?.mini_title || "Digital Marketing Services";
-  const mainTitle = data?.main_title || "How Our Agency Helps You Scale";
+export function ServicesSection() {
+  const miniTitle = "Digital Marketing Services";
+  const mainTitle = "How Our Agency Helps You Scale";
   
-  const defaultCards = [
+  const cards = [
     {
       type: "content_card",
       data: {
@@ -63,13 +54,8 @@ export function ServicesSection({ data }: ServicesSectionProps) {
     }
   ];
 
-  const cards = data?.cards || defaultCards;
-
-  // Helper to resolve image paths (if from API, prepend /storage/, else use direct string)
   const getImageUrl = (path: string) => {
-    if (!path) return '';
-    if (path.startsWith('/')) return path;
-    return `http://127.0.0.1:8000/storage/${path}`;
+    return path;
   };
 
   return (

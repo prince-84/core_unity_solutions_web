@@ -2,6 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { Phone } from 'lucide-react';
+import Link from 'next/link';
 
 export default function CaseStudyDetailPage() {
   return (
@@ -47,9 +49,9 @@ export default function CaseStudyDetailPage() {
           {/* Left Column: Case Study Details */}
           <div className="lg:col-span-2 space-y-12">
             
-            {/* Featured Image Placeholder */}
-            <div className="w-full h-[300px] md:h-[400px] bg-red-900 rounded-2xl overflow-hidden relative shadow-lg flex items-center justify-center">
-              <span className="text-white/50 font-medium">Featured Image Placeholder</span>
+            {/* Featured Image */}
+            <div className="w-full h-[300px] md:h-[400px] rounded-2xl overflow-hidden relative shadow-lg">
+              <Image src="/cs_image.png" alt="Case Study Featured Image" fill className="object-cover" />
             </div>
 
             {/* Overview */}
@@ -127,15 +129,18 @@ export default function CaseStudyDetailPage() {
             
             {/* Contact Card */}
             <div>
-              <h4 className="font-bold text-sm mb-3">Contact With Us Now !</h4>
-              <div className="bg-gray-50 rounded-2xl p-6 shadow-sm border border-gray-100">
+              <h4 className="font-bold text-[17px] mb-3">Contact With Us Now !</h4>
+              <div className="bg-[#f2f2f2] rounded-2xl p-6 shadow-sm border border-gray-100">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-gray-300 rounded-full overflow-hidden flex-shrink-0">
-                    {/* Avatar Placeholder */}
+                  <div className="w-14 h-14 bg-gray-300 rounded-full overflow-hidden flex-shrink-0 relative">
+                    <Image src="/zeeshan.png.png" alt="Zeeshan Aashiq" fill className="object-cover" />
                   </div>
-                  <div>
-                    <h5 className="font-bold text-gray-900">Zeeshan Aashiq</h5>
-                    <p className="text-sm text-gray-500">+92 343 1891919</p>
+                  <div className="flex flex-col gap-1">
+                    <h5 className="font-bold text-gray-900 text-[18px]">Zeeshan Aashiq</h5>
+                    <div className="flex items-center gap-1.5">
+                       <Phone className="w-4 h-4 text-black" strokeWidth={2} />
+                       <p className="text-[15px] text-gray-800 tracking-wide">+92 343 1891919</p>
+                    </div>
                   </div>
                 </div>
                 <div className="flex gap-3">
@@ -151,42 +156,48 @@ export default function CaseStudyDetailPage() {
             </div>
 
             {/* SMM Promo Card */}
-            <div className="bg-black text-white rounded-3xl p-8 shadow-2xl text-center relative overflow-hidden max-w-[340px] mx-auto min-h-[580px] flex flex-col justify-between ml-auto mr-0 lg:mr-auto">
+            <div className="bg-black text-white rounded-[32px] px-5 py-10 shadow-2xl text-center relative overflow-hidden max-w-[340px] mx-auto flex flex-col justify-between h-[611px] ml-auto mr-0 lg:mr-auto border border-white/[0.03]">
               
-              {/* Red glow behind the grid */}
+              {/* Red glow behind the grid at the bottom */}
               <div 
-                className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] pointer-events-none z-0"
+                className="absolute bottom-[-50px] left-1/2 -translate-x-1/2 w-[300px] h-[300px] pointer-events-none z-0"
                 style={{
-                  background: 'radial-gradient(circle, rgba(211,47,47,0.35) 0%, transparent 65%)',
-                  filter: 'blur(40px)'
+                  background: 'radial-gradient(circle, rgba(160,20,30,0.55) 0%, transparent 70%)',
+                  filter: 'blur(30px)'
                 }}
               />
               
-              <div className="relative z-10 pt-4">
-                <h3 className="text-3xl font-bold leading-[1.2] mb-6 tracking-tight">
-                  Experience<br/>Growth with<br/>Leading SMM
+              <div className="relative z-10 pt-2 flex flex-col gap-4">
+                <h3 className="text-[36px] font-extrabold leading-[1.08] tracking-tight text-white">
+                  Experience<br/>
+                  Growth with<br/>
+                  Leading SMM
                 </h3>
-                <p className="text-[#64748b] text-[15px] mb-8 leading-relaxed font-normal px-2">
+                <p className="text-gray-300 text-[14px] leading-[1.45] font-light max-w-[270px] mx-auto">
                   At CoreUnity Solutions, squeeze out each platform's power and scope and utilize it for your brand success.
                 </p>
               </div>
               
-              <div className="grid grid-cols-2 gap-3 relative z-10 pb-4">
-                <div className="bg-[#111111] rounded-2xl p-4 border border-white/5">
-                  <div className="font-bold text-2xl mb-1">100+</div>
-                  <div className="text-[10px] text-gray-400 uppercase tracking-widest leading-tight mt-2">Brands<br/>Transformed</div>
+              <div className="grid grid-cols-2 gap-2.5 relative z-10 mt-2">
+                {/* 100+ Card */}
+                <div className="bg-[#180e0f] rounded-[14px] py-4 px-3 border border-white/[0.08] flex flex-row items-center justify-center gap-2">
+                  <div className="font-bold text-[27px] text-white tracking-tighter leading-none">100+</div>
+                  <div className="text-[10.5px] text-gray-300 text-left font-normal leading-[1.25] tracking-tight">Brands<br/>Transformed</div>
                 </div>
-                <div className="bg-[#111111] rounded-2xl p-4 border border-white/5">
-                  <div className="font-bold text-2xl mb-1">300+</div>
-                  <div className="text-[10px] text-gray-400 uppercase tracking-widest leading-tight mt-2">Wins<br/>Delivered</div>
+                {/* 300+ Card */}
+                <div className="bg-[#180e0f] rounded-[14px] py-4 px-3 border border-white/[0.08] flex flex-row items-center justify-center gap-2">
+                  <div className="font-bold text-[27px] text-white tracking-tighter leading-none">300+</div>
+                  <div className="text-[10.5px] text-gray-300 text-left font-normal leading-[1.25] tracking-tight">Wins<br/>Delivered</div>
                 </div>
-                <div className="bg-white rounded-2xl p-4 text-black">
-                  <div className="font-bold text-2xl text-[#d32f2f] mb-1">15+</div>
-                  <div className="text-[10px] text-gray-500 uppercase tracking-widest leading-tight mt-2">Years of<br/>Innovation</div>
+                {/* 15+ Card */}
+                <div className="bg-white rounded-[14px] py-4 px-3 flex flex-row items-center justify-center gap-2">
+                  <div className="font-bold text-[27px] text-[#c52833] tracking-tighter leading-none">15+</div>
+                  <div className="text-[10.5px] text-gray-800 text-left font-normal leading-[1.25] tracking-tight">Years of<br/>Innovation</div>
                 </div>
-                <div className="bg-white rounded-2xl p-4 text-black">
-                  <div className="font-bold text-2xl text-[#d32f2f] mb-1">98%</div>
-                  <div className="text-[10px] text-gray-500 uppercase tracking-widest leading-tight mt-2">Satisfaction</div>
+                {/* 98% Card */}
+                <div className="bg-white rounded-[14px] py-4 px-3 flex flex-row items-center justify-center gap-2">
+                  <div className="font-bold text-[27px] text-[#c52833] tracking-tighter leading-none">98%</div>
+                  <div className="text-[10.5px] text-gray-800 text-left font-normal leading-[1.25] tracking-tight">Satisfaction</div>
                 </div>
               </div>
             </div>
@@ -206,9 +217,9 @@ export default function CaseStudyDetailPage() {
           <p className="text-white/90 text-[18px] font-light mt-1 md:mt-0">Let's build a strategy that delivers real results.</p>
         </div>
         
-        <button className="bg-white text-[#c52833] px-10 py-3.5 rounded-xl font-bold hover:bg-gray-50 transition-colors shadow-lg flex items-center gap-2 relative z-10 whitespace-nowrap text-[16px]">
+        <Link href="/contact" className="bg-white text-[#c52833] px-10 py-3.5 rounded-xl font-bold hover:bg-gray-50 transition-colors shadow-lg flex items-center gap-2 relative z-10 whitespace-nowrap text-[16px]">
           Contact with us <span className="text-2xl leading-none">&rarr;</span>
-        </button>
+        </Link>
       </div>
 
       {/* Testimonial (Light Mode) */}
@@ -216,9 +227,9 @@ export default function CaseStudyDetailPage() {
         
         {/* Background Zebra Pattern */}
         <div 
-          className="absolute inset-0 z-0 opacity-40 pointer-events-none"
+          className="absolute inset-0 z-0 opacity-100 pointer-events-none"
           style={{
-            backgroundImage: `url("/zebra_bg.svg")`,
+            backgroundImage: `url("/white_bg.png")`,
             backgroundSize: 'cover',
             backgroundPosition: 'center center'
           }}

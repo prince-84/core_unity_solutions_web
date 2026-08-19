@@ -31,7 +31,13 @@ export function Navbar() {
         { name: "Case Study Detail", href: "/case-study/detail" },
       ]
     },
-    { name: "Blog", href: "/blog" },
+    { 
+      name: "Blog", 
+      href: "/blog",
+      dropdown: [
+        { name: "Blog Detail", href: "/blog/detail" },
+      ]
+    },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -52,7 +58,7 @@ export function Navbar() {
               <Link
                 href={link.href}
                 className={`flex items-center gap-1 px-4 py-1.5 transition-colors ${
-                  pathname.startsWith("/portfolio") || pathname.startsWith("/case-study")
+                  pathname.startsWith(link.href) || (link.dropdown && link.dropdown.some(d => pathname === d.href))
                     ? "bg-[#cc2936] text-white rounded-xl"
                     : "text-gray-300 hover:text-white"
                 }`}

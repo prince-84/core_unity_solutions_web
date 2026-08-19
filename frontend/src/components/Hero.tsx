@@ -1,28 +1,29 @@
-export function Hero({ data }: { data?: any }) {
-  if (!data || data.message) return null; // Wait for CMS data to exist
-
+export function Hero() {
   const heroData = {
-    title: data.title || '',
-    button_text: data.button_text || '',
-    button_link: data.button_link || '#',
-    button_icon: data.button_icon ? `http://127.0.0.1:8000/storage/${data.button_icon}` : null
+    title: 'We are a bold and innovative digital<br />agency based in the UAE.',
+    button_text: 'Schedule a call',
+    button_link: '#services',
+    button_icon: '/zeeshan.png.png'
   };
 
   return (
     <div className="flex flex-col items-center justify-center text-center mt-12 max-w-5xl mx-auto px-4 z-20 relative">
+      {/* Red shading behind text */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[250px] bg-red-600/20 blur-[120px] pointer-events-none rounded-[100%]"></div>
+      
       <h1 
-        className="text-4xl md:text-[55px] font-bold text-white leading-[1.2] md:leading-[1.1] mb-6"
+        className="text-3xl md:text-[42px] font-bold text-white leading-[1.3] md:leading-[1.2] mb-8 z-10 relative"
         dangerouslySetInnerHTML={{ __html: heroData.title }}
       />
       
-      <div className="relative flex items-center justify-center w-full max-w-sm mx-auto">
+      <div className="relative flex items-center justify-center w-full max-w-sm mx-auto mt-2">
         {/* Dotted horizontal line */}
-        <div className="absolute w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent border-t border-dashed border-blue-500/30"></div>
+        <div className="absolute w-full h-[1px] bg-gradient-to-r from-transparent via-gray-600/50 to-transparent border-t border-dashed border-gray-500/30"></div>
         
         {/* Button */}
-        <a href={heroData.button_link || '#'} className="relative z-10 bg-red-600 hover:bg-red-700 text-white pl-5 pr-2 py-2 rounded-full font-medium text-sm flex items-center gap-3 transition-colors shadow-[0_0_20px_rgba(220,38,38,0.4)]">
+        <a href={heroData.button_link || '#'} className="relative z-10 bg-[#b71c1c] hover:bg-red-700 text-white pl-4 pr-1.5 py-1.5 rounded-full font-medium text-xs md:text-sm flex items-center gap-3 transition-colors shadow-[0_0_15px_rgba(220,38,38,0.5)]">
           {heroData.button_text}
-          <div className="w-7 h-7 rounded-full bg-gray-300 flex items-center justify-center overflow-hidden border-2 border-red-600">
+          <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gray-800 flex items-center justify-center overflow-hidden shadow-inner">
             {heroData.button_icon ? (
               <img src={heroData.button_icon} alt="icon" className="w-full h-full object-cover" />
             ) : (

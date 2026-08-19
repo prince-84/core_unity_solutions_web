@@ -17,86 +17,106 @@ const clients = [
 
 export function OurClientsSection() {
   return (
-    <section className="relative w-full bg-black text-white py-16 md:py-24 overflow-hidden border-t border-white/5 font-sans">
+    <section className="bg-black py-24 md:py-32 relative overflow-hidden border-t border-white/[0.05] font-sans">
       
-      {/* Graph Paper Background */}
+      {/* Background Dots */}
       <div 
-        className="absolute inset-0 z-0 opacity-20 pointer-events-none"
+        className="absolute inset-0 z-0 opacity-100 pointer-events-none"
         style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px',
+          backgroundImage: `url("/grid_bg.png")`,
+          backgroundSize: 'cover',
           backgroundPosition: 'center center'
         }}
       />
-
-      {/* Crosshairs at grid intersections for extra detail */}
+      
+      {/* Red Center Glow */}
       <div 
-        className="absolute inset-0 z-0 opacity-10 pointer-events-none"
+        className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] max-w-5xl h-[800px] pointer-events-none z-0"
         style={{
-          backgroundImage: `
-            radial-gradient(circle at 20px 20px, white 1px, transparent 1.5px)
-          `,
-          backgroundSize: '40px 40px',
-          backgroundPosition: '0 0'
+          background: 'radial-gradient(circle at center, rgba(160, 10, 15, 0.4) 0%, transparent 60%)',
+          filter: 'blur(60px)'
         }}
       />
 
-      {/* Center Red Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-700/20 blur-[150px] rounded-full pointer-events-none z-0 mix-blend-screen" />
-
-      <div className="max-w-[1200px] mx-auto flex flex-col items-center relative z-10 px-4">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-8">
         
-        {/* Header Area */}
-        <div className="flex flex-col items-center text-center mb-16 w-full">
-          <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-gray-500 mb-6 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-red-600"></span>
-            Our Clients
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
-            5-Star Rated, Works<br />with CoreUnity Solutions
+        {/* Header */}
+        <div className="flex flex-col items-center text-center mb-16">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600 shadow-[0_0_8px_3px_rgba(220,38,38,0.5)]"></span>
+            </div>
+            <span className="text-xs tracking-widest text-gray-400 ml-1 uppercase">Our Clients</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl lg:text-[54px] font-bold max-w-4xl leading-tight text-white">
+            5-Star Rated, Works <br className="hidden md:block" /> with CoreUnity Solutions
           </h2>
         </div>
 
-        {/* 12-Column Grid Area */}
-        <div className="w-full relative mt-8">
-          {/* Faint border wrap around the whole grid to match internal borders */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 border-l border-t border-white/10 w-full backdrop-blur-sm">
-            
-            {clients.map((client, i) => (
+        {/* Logos Grid Container */}
+        <div className="relative mt-20">
+          
+          {/* Grid Lines Layer with fading mask */}
+          <div 
+            className="absolute inset-0 pointer-events-none grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 z-0"
+            style={{ WebkitMaskImage: 'radial-gradient(ellipse at center, black 20%, transparent 80%)', maskImage: 'radial-gradient(ellipse at center, black 20%, transparent 80%)' }}
+          >
+            {[...Array(12)].map((_, i) => (
               <div 
                 key={i} 
-                className="flex flex-col items-center justify-center p-6 border-r border-b border-white/10 h-[160px] text-center hover:bg-white/[0.02] transition-colors"
+                className={`
+                  border-white/40 border-r border-b
+                  ${(i + 1) % 2 === 0 ? 'border-r-0' : ''}
+                  ${(i + 1) % 3 === 0 ? 'md:border-r-0' : 'md:border-r'}
+                  ${(i + 1) % 6 === 0 ? 'lg:border-r-0' : 'lg:border-r'}
+                  ${i >= 10 ? 'border-b-0' : ''}
+                  ${i >= 9 ? 'md:border-b-0' : 'md:border-b'}
+                  ${i >= 6 ? 'lg:border-b-0' : 'lg:border-b'}
+                `}
+              />
+            ))}
+          </div>
+
+          {/* Content Layer (Logos) */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 relative z-10">
+            
+            {/* 11 Client Logos */}
+            {[
+              "/salwa.png",
+              "/dental.png",
+              "/SkillBridge Academy.png",
+              "/cajun.png",
+              "/UAEofplan.png",
+              "/alhilal.png",
+              "/fs.png",
+              "/handyman.png",
+              "/soulnsoil.png",
+              "/appello.png",
+              "/sukihana.png"
+            ].map((imgSrc, i) => (
+              <div 
+                key={i} 
+                className="aspect-[3/2] flex flex-col items-center justify-center p-6 transition-colors hover:bg-white/5 cursor-pointer text-center"
               >
-                {client.type === "globe" ? (
-                  <div className="flex flex-col items-center gap-3">
-                    <div className="relative w-12 h-12">
-                      <Image src="/client_globe.png" alt="Globe" fill className="object-contain" />
-                    </div>
-                    <span className="text-gray-400 text-xs max-w-[100px] leading-snug">
-                      {client.sub}
-                    </span>
-                  </div>
-                ) : (
-                  <div className="flex flex-col items-center opacity-70 hover:opacity-100 transition-opacity">
-                    <h4 className="font-bold text-lg md:text-xl tracking-tight text-white mb-1">
-                      {client.name}
-                    </h4>
-                    {client.sub && (
-                      <span className="text-[9px] md:text-[10px] uppercase tracking-wider text-gray-400">
-                        {client.sub}
-                      </span>
-                    )}
-                  </div>
-                )}
+                <div className="relative w-full h-full max-h-[80px]">
+                  <Image src={imgSrc} alt={`Client logo ${i + 1}`} fill className="object-contain" />
+                </div>
               </div>
             ))}
-
+            
+            {/* Globe Item (Index 11) */}
+            <div className="aspect-[3/2] flex flex-col items-center justify-center p-6 transition-colors hover:bg-white/5 cursor-pointer">
+              <div className="relative w-12 h-12 rounded-full mb-3 flex items-center justify-center overflow-hidden">
+                <Image src="/World.png" alt="Globe" fill className="object-contain" />
+              </div>
+              <p className="text-[11px] text-center text-gray-400 leading-snug">
+                500+ Clients <br /> worldwide
+              </p>
+            </div>
           </div>
         </div>
-
+        
       </div>
     </section>
   );

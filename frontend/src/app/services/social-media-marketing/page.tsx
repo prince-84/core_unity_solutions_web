@@ -5,6 +5,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { OurWorkSection } from '@/components/OurWorkSection';
 import { OurClientsSection } from '@/components/OurClientsSection';
+import Link from 'next/link';
 
 import Image from 'next/image';
 
@@ -167,9 +168,9 @@ export default function SocialMediaMarketingPage() {
       <section className="w-full bg-white text-black relative flex flex-col pt-24">
         {/* Wavy Background (Left half) */}
         <div 
-          className="absolute inset-0 z-0 opacity-40 pointer-events-none" 
+          className="absolute inset-0 z-0 opacity-100 pointer-events-none" 
           style={{ 
-            backgroundImage: 'url("/zebra_bg.svg")', 
+            backgroundImage: 'url("/white_bg.png")', 
             backgroundSize: '50% 100%', 
             backgroundPosition: 'left center',
             backgroundRepeat: 'no-repeat'
@@ -237,9 +238,9 @@ export default function SocialMediaMarketingPage() {
                 Let's build a strategy that delivers real results.
               </p>
             </div>
-            <button className="bg-white hover:bg-gray-100 text-[#cc2936] font-bold text-sm px-8 py-4 rounded-lg transition-colors flex items-center gap-2 shadow-lg">
+            <Link href="/contact" className="bg-white hover:bg-gray-100 text-[#cc2936] font-bold text-sm px-8 py-4 rounded-lg transition-colors flex items-center gap-2 shadow-lg">
               Contact with us &rarr;
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -250,7 +251,7 @@ export default function SocialMediaMarketingPage() {
       {/* SMM Stats Section */}
       <section className="h-[428px] w-full bg-black relative flex items-center overflow-hidden shrink-0">
         {/* Red Glow Background on the right */}
-        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_85%_50%,_rgba(150,15,25,0.65)_0%,_rgba(0,0,0,0)_60%)] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_85%_50%,_rgba(220,20,30,0.85)_0%,_rgba(0,0,0,0)_65%)] pointer-events-none" />
 
         <div className="max-w-[1300px] w-full mx-auto px-6 lg:px-12 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12 md:gap-8">
           
@@ -268,26 +269,26 @@ export default function SocialMediaMarketingPage() {
           </div>
 
           {/* Right Cards Grid */}
-          <div className="flex-1 grid grid-cols-2 gap-4 w-full max-w-[500px]">
+          <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-[750px]">
             {/* Card 1 */}
-            <div className="bg-[#171717] border-2 border-white rounded-[14px] py-8 md:py-9 px-4 md:px-6 flex flex-col items-center justify-center text-center">
-              <h3 className="text-white text-[32px] md:text-[38px] font-bold mb-1 tracking-tight">100+</h3>
-              <p className="text-gray-200 text-[13px] md:text-[14px]">Brands Transformed</p>
+            <div className="bg-[#1a1a1a] border border-white rounded-[14px] py-7 px-4 md:px-6 flex flex-row items-center justify-center gap-3 md:gap-4 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+              <h3 className="text-white text-[28px] md:text-[34px] font-bold tracking-tight">100+</h3>
+              <p className="text-white text-[11px] md:text-[12px] font-bold tracking-widest uppercase whitespace-nowrap">Brands Transformed</p>
             </div>
             {/* Card 2 */}
-            <div className="bg-[#171717] border-2 border-white rounded-[14px] py-8 md:py-9 px-4 md:px-6 flex flex-col items-center justify-center text-center">
-              <h3 className="text-white text-[32px] md:text-[38px] font-bold mb-1 tracking-tight">325+</h3>
-              <p className="text-gray-200 text-[13px] md:text-[14px]">Wins Delivered</p>
+            <div className="bg-[#1a1a1a] border border-white rounded-[14px] py-7 px-4 md:px-6 flex flex-row items-center justify-center gap-3 md:gap-4 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+              <h3 className="text-white text-[28px] md:text-[34px] font-bold tracking-tight">325+</h3>
+              <p className="text-white text-[11px] md:text-[12px] font-bold tracking-widest uppercase whitespace-nowrap">Wins Delivered</p>
             </div>
             {/* Card 3 */}
-            <div className="bg-white rounded-[14px] py-8 md:py-9 px-4 md:px-6 flex flex-col items-center justify-center text-center shadow-md">
-              <h3 className="text-[#c52833] text-[32px] md:text-[38px] font-bold mb-1 tracking-tight">15+</h3>
-              <p className="text-[#1f1f1f] text-[13px] md:text-[14px]">Years of Innovation</p>
+            <div className="bg-white rounded-[14px] py-7 px-4 md:px-6 flex flex-row items-center justify-center gap-3 md:gap-4 shadow-xl">
+              <h3 className="text-[#c52833] text-[28px] md:text-[34px] font-bold tracking-tight">15+</h3>
+              <p className="text-[#1f1f1f] text-[11px] md:text-[12px] font-bold tracking-widest uppercase whitespace-nowrap">Years of Innovation</p>
             </div>
             {/* Card 4 */}
-            <div className="bg-white rounded-[14px] py-8 md:py-9 px-4 md:px-6 flex flex-col items-center justify-center text-center shadow-md">
-              <h3 className="text-[#c52833] text-[32px] md:text-[38px] font-bold mb-1 tracking-tight">98%</h3>
-              <p className="text-[#1f1f1f] text-[13px] md:text-[14px]">Satisfaction</p>
+            <div className="bg-white rounded-[14px] py-7 px-4 md:px-6 flex flex-row items-center justify-center gap-3 md:gap-4 shadow-xl">
+              <h3 className="text-[#c52833] text-[28px] md:text-[34px] font-bold tracking-tight">98%</h3>
+              <p className="text-[#1f1f1f] text-[11px] md:text-[12px] font-bold tracking-widest uppercase whitespace-nowrap">Satisfaction Rate</p>
             </div>
           </div>
 
@@ -349,9 +350,9 @@ export default function SocialMediaMarketingPage() {
               <h3 className="text-[28px] md:text-[32px] font-bold mb-2 tracking-tight">Ready to grow your brand?</h3>
               <p className="text-red-100 text-[16px] font-light">Let's build a strategy that delivers real results.</p>
             </div>
-            <button className="bg-white text-[#c52833] font-bold text-[14px] px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors flex items-center gap-2">
+            <Link href="/contact" className="bg-white text-[#c52833] font-bold text-[14px] px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors flex items-center gap-2">
               Connect with us &rarr;
-            </button>
+            </Link>
           </div>
 
         </div>
@@ -364,9 +365,9 @@ export default function SocialMediaMarketingPage() {
         
         {/* Background Zebra Pattern */}
         <div 
-          className="absolute inset-0 z-0 opacity-40 pointer-events-none"
+          className="absolute inset-0 z-0 opacity-100 pointer-events-none"
           style={{
-            backgroundImage: `url("/zebra_bg.svg")`,
+            backgroundImage: 'url("/white_bg.png")',
             backgroundSize: 'cover',
             backgroundPosition: 'center center'
           }}

@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Navbar } from '@/components/Navbar';
+import { OurClientsSection } from '@/components/OurClientsSection';
 import { Footer } from '@/components/Footer';
 import { AboutAccordion } from '@/components/AboutAccordion';
 import { TeamSection } from '@/components/TeamSection';
@@ -101,34 +102,31 @@ export default function AboutPage() {
       {/* Content Section: What Drives Us Forward */}
       <section className="bg-black text-white py-24 md:py-32 px-6 sm:px-12 md:px-20 relative z-10 overflow-hidden font-sans border-t border-white/5">
         
-        {/* Background Red Radial Glow - Top Center */}
-        <div 
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[500px] pointer-events-none z-0"
-          style={{
-            background: 'radial-gradient(circle at top center, rgba(160, 20, 25, 0.4) 0%, transparent 70%)',
-            filter: 'blur(60px)'
-          }}
-        />
-
-        {/* Background Image - Left Corner */}
-        <div className="absolute top-1/2 -translate-y-1/2 -left-10 md:left-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] opacity-60 pointer-events-none z-0">
+        {/* Background Image - Left Edge Center */}
+        <div className="absolute top-1/2 -translate-y-1/2 left-0 -translate-x-1/2 w-[600px] md:w-[900px] h-[600px] md:h-[900px] opacity-80 pointer-events-none z-0 mix-blend-lighten">
           <Image 
             src="/bg_image.png" 
             alt="Background Pattern" 
             fill 
-            className="object-contain object-left"
+            className="object-contain"
           />
         </div>
+
+        {/* Background Red Radial Glow - Bottom Left */}
+        <div 
+          className="absolute bottom-0 left-0 w-[500px] h-[500px] -translate-x-1/2 translate-y-1/4 pointer-events-none z-0 mix-blend-screen"
+          style={{
+            background: 'radial-gradient(circle at center, rgba(220, 38, 38, 0.25) 0%, transparent 70%)',
+            filter: 'blur(80px)'
+          }}
+        />
 
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 xl:gap-32 relative z-10">
           
           {/* Left Content */}
           <div className="flex flex-col pt-10">
             <div className="flex items-center gap-4 mb-4">
-              <div className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600 shadow-[0_0_8px_3px_rgba(220,38,38,0.5)]"></span>
-              </div>
+              <span className="w-2.5 h-2.5 rounded-full bg-red-600 shadow-[0_0_10px_3px_rgba(220,38,38,0.7)] flex-shrink-0 mt-3"></span>
               <h2 className="text-4xl md:text-[55px] font-bold tracking-wide text-white leading-[1.15]">
                 What Drives Us<br/>Forward
               </h2>
@@ -145,11 +143,11 @@ export default function AboutPage() {
 
       {/* Fourth Section: Industries We Serve */}
       <section className="bg-white text-black py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden">
-        {/* Subtle white/gray zebra wave background */}
+        {/* Subtle white background */}
         <div 
-          className="absolute inset-0 z-0 opacity-40" 
+          className="absolute inset-0 z-0 opacity-100" 
           style={{
-            backgroundImage: `url("/zebra_bg.svg")`,
+            backgroundImage: `url("/white_bg.png")`,
             backgroundSize: 'cover',
             backgroundPosition: 'center center'
           }}
@@ -301,10 +299,12 @@ export default function AboutPage() {
                 <div className="relative w-12 h-12 shrink-0">
                   <img src="/redbg.png" alt="red bg" className="absolute -left-1.5 -bottom-1.5 w-full h-full object-cover" />
                   <img src="/blackbg.png" alt="black bg" className="absolute inset-0 w-full h-full object-cover" />
-                  <div className="absolute inset-0 flex items-center justify-center p-2.5 relative">
-                    <img src="/res_table_img.png" alt="Table" className="w-4 h-4 absolute top-1 left-1/2 -translate-x-1/2 object-contain filter invert brightness-0" />
-                    <img src="/rest_chair_img.png" alt="Chair 1" className="w-3.5 h-3.5 absolute left-1.5 top-3.5 object-contain filter invert brightness-0" />
-                    <img src="/rest_chair_img2.png" alt="Chair 2" className="w-3.5 h-3.5 absolute right-1.5 top-3.5 object-contain filter invert brightness-0" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="flex items-end justify-center gap-0.5 mt-0.5">
+                      <img src="/rest_chair_img2.png" alt="Chair 1" className="w-3.5 h-3.5 object-contain filter invert brightness-0 pb-[1px]" />
+                      <img src="/res_table_img.png" alt="Table" className="w-4 h-4 object-contain filter invert brightness-0" />
+                      <img src="/rest_chair_img.png" alt="Chair 2" className="w-3.5 h-3.5 object-contain filter invert brightness-0 pb-[1px]" />
+                    </div>
                   </div>
                 </div>
                 <h3 className="font-bold text-[#1f1f1f] text-[17px]">Restaurant</h3>
@@ -319,86 +319,7 @@ export default function AboutPage() {
 
 
       {/* Our Clients Section */}
-      <section className="relative bg-[#020202] text-white py-24 overflow-hidden border-t border-white/5">
-        {/* Grid Background Pattern */}
-        <div 
-          className="absolute inset-0 z-0 opacity-100 pointer-events-none"
-          style={{
-            backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px)`,
-            backgroundSize: '3rem 3rem',
-            backgroundPosition: 'center top'
-          }}
-        />
-        
-        {/* Red Center Glow */}
-        <div 
-          className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] max-w-5xl h-[800px] pointer-events-none z-0"
-          style={{
-            background: 'radial-gradient(circle at center, rgba(160, 10, 15, 0.4) 0%, transparent 60%)',
-            filter: 'blur(60px)'
-          }}
-        />
-
-        <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-8">
-          
-          {/* Header */}
-          <div className="flex flex-col items-center text-center mb-16">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600 shadow-[0_0_8px_3px_rgba(220,38,38,0.5)]"></span>
-              </div>
-              <span className="text-xs tracking-widest text-gray-400 ml-1 uppercase">Our Clients</span>
-            </div>
-            <h2 className="text-3xl md:text-5xl lg:text-[54px] font-bold max-w-4xl leading-tight text-white">
-              5-Star Rated, Works <br className="hidden md:block" /> with CoreUnity Solutions
-            </h2>
-          </div>
-
-          {/* Logos Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 mt-20 relative">
-            
-            {/* 11 Logo Placeholders with Text */}
-            {[
-              { name: "SALWA", sub: "REAL ESTATE" },
-              { name: "Dental ZORG", sub: "DUTCH DENTAL CLINIC" },
-              { name: "iRMG", sub: "INTERNATIONAL RESOURCE MANAGEMENT GROUP" },
-              { name: "CAJUN GRILL", sub: "BOLD FLAVORS. TOGETHER." },
-              { name: "UAE OffPlan", sub: "" },
-              { name: "AL HILAL", sub: "RESTAURANT" },
-              { name: "FS", sub: "ADVISORY" },
-              { name: "The HANDY MAN", sub: "" },
-              { name: "Soul & Soil", sub: "PROPERTIES LLC" },
-              { name: "APPELLO", sub: "INTERIORS" },
-              { name: "Suki Hana", sub: "JAPAN" }
-            ].map((client, i) => (
-              <div 
-                key={i} 
-                className={`aspect-[3/2] flex flex-col items-center justify-center p-4 transition-colors hover:bg-white/5 cursor-pointer text-center
-                  border-b border-white/[0.04]
-                  ${(i + 1) % 6 !== 0 ? 'lg:border-r lg:border-white/[0.04]' : ''}
-                  ${(i + 1) % 3 !== 0 ? 'md:border-r md:border-white/[0.04]' : ''}
-                  ${(i + 1) % 2 !== 0 ? 'border-r border-white/[0.04]' : ''}
-                `}
-              >
-                <span className="text-white font-bold text-lg md:text-xl">{client.name}</span>
-                {client.sub && <span className="text-white/40 text-[9px] mt-1 tracking-[0.2em] uppercase max-w-[90%] mx-auto">{client.sub}</span>}
-              </div>
-            ))}
-            
-            {/* Globe Item (Index 11) */}
-            <div className={`aspect-[3/2] flex flex-col items-center justify-center p-6 transition-colors hover:bg-white/5 cursor-pointer border-b border-white/[0.04] lg:border-b-0`}>
-              <div className="w-12 h-12 rounded-full mb-3 flex items-center justify-center overflow-hidden">
-                <Image src="/earth_globe.png" alt="Globe" width={48} height={48} className="object-contain" />
-              </div>
-              <p className="text-xs text-center text-gray-300 leading-snug">
-                500+ Clients <br /> worldwide
-              </p>
-            </div>
-          </div>
-          
-        </div>
-      </section>
+      <OurClientsSection />
 
       <TeamSection />
 

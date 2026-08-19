@@ -12,39 +12,36 @@ import { TestimonialSection } from "@/components/TestimonialSection";
 import { BlogSection } from "@/components/BlogSection";
 import { Footer } from "@/components/Footer";
 
-export default async function Home() {
-  let heroData = null;
-  try {
-    const res = await fetch('http://127.0.0.1:8000/api/hero', { cache: 'no-store' });
-    if (res.ok) {
-      heroData = await res.json();
-    }
-  } catch (error) {
-    console.error('Failed to fetch hero data:', error);
-  }
-
-  let servicesData = null;
-  try {
-    const res = await fetch('http://127.0.0.1:8000/api/services-section', { cache: 'no-store' });
-    if (res.ok) {
-      servicesData = await res.json();
-    }
-  } catch (error) {
-    console.error('Failed to fetch services data:', error);
-  }
-
+export default function Home() {
   return (
     <main className="min-h-screen bg-black overflow-x-hidden relative flex flex-col font-sans">
       <Navbar />
       
       <div className="flex-1 flex flex-col relative z-10 w-full pt-16">
-        <Hero data={heroData} />
-        <EarthGlobe image={heroData?.globe_image} />
-        <GlobalPresence locations={heroData?.global_presence} />
-        <LogoTicker logos={heroData?.logo_ticker} />
+        {/* Subtle Starry background for the entire hero section */}
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-20 z-0"
+          style={{
+            backgroundImage: `
+              radial-gradient(1px 1px at 25% 10%, rgba(255,255,255,0.8), transparent),
+              radial-gradient(1px 1px at 50% 25%, white, transparent),
+              radial-gradient(1.5px 1.5px at 75% 15%, rgba(255,255,255,0.6), transparent),
+              radial-gradient(1.5px 1.5px at 10% 60%, rgba(255,255,255,0.7), transparent),
+              radial-gradient(1px 1px at 85% 55%, white, transparent),
+              radial-gradient(2px 2px at 30% 85%, rgba(255,255,255,0.5), transparent),
+              radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,0.9), transparent)
+            `,
+            backgroundSize: '180px 180px'
+          }}
+        ></div>
+
+        <Hero />
+        <EarthGlobe />
+        <GlobalPresence />
+        <LogoTicker />
       </div>
 
-      <ServicesSection data={servicesData} />
+      <ServicesSection />
       <CoreStrengthsSection />
       <OurWorkSection title="10+ yrs of expertise in providing innovative solutions" />
       <OurClientsSection />

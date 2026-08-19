@@ -1,9 +1,5 @@
-export function GlobalPresence({ locations }: { locations?: { country: string }[] | null }) {
-  const displayLocations = locations && locations.length > 0 
-    ? locations.map(loc => loc.country) 
-    : null;
-
-  if (!displayLocations) return null;
+export function GlobalPresence() {
+  const displayLocations = ["USA", "UAE", "Saudi Arabia", "Pakistan"];
 
   return (
     <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mt-12 mb-8 z-20 relative w-full px-4 text-center">
