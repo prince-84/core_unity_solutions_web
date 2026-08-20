@@ -5,9 +5,11 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Phone, Menu, ChevronDown } from "lucide-react";
+import { SpeakExpertModal } from "./SpeakExpertModal";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isExpertOpen, setIsExpertOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -24,20 +26,8 @@ export function Navbar() {
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
-    { 
-      name: "Case Study", 
-      href: "/portfolio",
-      dropdown: [
-        { name: "Case Study Detail", href: "/case-study/detail" },
-      ]
-    },
-    { 
-      name: "Blog", 
-      href: "/blog",
-      dropdown: [
-        { name: "Blog Detail", href: "/blog/detail" },
-      ]
-    },
+    { name: "Case Study", href: "/portfolio" },
+    { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -96,19 +86,25 @@ export function Navbar() {
 
       {/* Action Buttons */}
       <div className="flex items-center gap-3">
-        <button className="bg-red-600 hover:bg-red-700 text-white text-sm font-medium px-5 py-2 rounded-full transition-colors hidden sm:block">
+        <button 
+          onClick={() => setIsExpertOpen(true)}
+          className="bg-red-600 hover:bg-red-700 text-white text-sm font-medium px-5 py-2 rounded-full transition-colors hidden sm:block cursor-pointer"
+        >
           Speak to an expert
         </button>
-        <button className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-300 hover:text-white hover:border-gray-500 transition-colors" title="WhatsApp">
+        <a href="https://wa.me/yournumber" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-300 hover:text-white hover:border-gray-500 transition-colors" title="WhatsApp">
           <Image src="/whatsapp_logo.png" alt="WhatsApp" width={18} height={18} className="object-contain" />
-        </button>
-        <button className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-300 hover:text-white hover:border-gray-500 transition-colors hidden sm:flex" title="Phone">
+        </a>
+        <a href="tel:+1234567890" className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-300 hover:text-white hover:border-gray-500 transition-colors hidden sm:flex" title="Phone">
           <Image src="/phone_logo.png" alt="Phone" width={18} height={18} className="object-contain brightness-0 invert" />
-        </button>
+        </a>
         <button className="md:hidden w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-300 hover:text-white hover:border-gray-500 transition-colors">
           <Menu className="w-5 h-5" />
         </button>
       </div>
+
+      {/* Speak to an Expert Modal */}
+      <SpeakExpertModal isOpen={isExpertOpen} onClose={() => setIsExpertOpen(false)} />
     </nav>
   );
 }

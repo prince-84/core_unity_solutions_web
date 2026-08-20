@@ -1,8 +1,20 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { ScheduleCallModal } from "./ScheduleCallModal";
+
 export function Hero() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOpen = () => setIsModalOpen(true);
+    window.addEventListener("open-schedule-modal", handleOpen);
+    return () => window.removeEventListener("open-schedule-modal", handleOpen);
+  }, []);
+
   const heroData = {
     title: 'We are a bold and innovative digital<br />agency based in the UAE.',
     button_text: 'Schedule a call',
-    button_link: '#services',
     button_icon: '/zeeshan.png.png'
   };
 
@@ -21,7 +33,10 @@ export function Hero() {
         <div className="absolute w-full h-[1px] bg-gradient-to-r from-transparent via-gray-600/50 to-transparent border-t border-dashed border-gray-500/30"></div>
         
         {/* Button */}
-        <a href={heroData.button_link || '#'} className="relative z-10 bg-[#b71c1c] hover:bg-red-700 text-white pl-4 pr-1.5 py-1.5 rounded-full font-medium text-xs md:text-sm flex items-center gap-3 transition-colors shadow-[0_0_15px_rgba(220,38,38,0.5)]">
+        <button 
+          onClick={() => setIsModalOpen(true)}
+          className="relative z-10 bg-[#b71c1c] hover:bg-red-700 text-white pl-4 pr-1.5 py-1.5 rounded-full font-medium text-xs md:text-sm flex items-center gap-3 transition-colors shadow-[0_0_15px_rgba(220,38,38,0.5)] cursor-pointer"
+        >
           {heroData.button_text}
           <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gray-800 flex items-center justify-center overflow-hidden shadow-inner">
             {heroData.button_icon ? (
@@ -32,8 +47,12 @@ export function Hero() {
               </svg>
             )}
           </div>
-        </a>
+        </button>
       </div>
+
+      {/* Booking Modal */}
+      <ScheduleCallModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }
+

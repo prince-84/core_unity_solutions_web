@@ -273,7 +273,7 @@ export default function BlogDetailPage() {
                 </div>
                 <div className="absolute top-[10%] right-[10%] w-9 h-9 rounded-full border border-red-600/30 p-0.5 z-20 bg-white">
                   <div className="w-full h-full rounded-full overflow-hidden relative">
-                    <Image src="/faraz_image.png" alt="Avatar" fill className="object-cover" />
+                    <Image src="/farazbhai_image.png" alt="Avatar" fill className="object-cover" />
                   </div>
                 </div>
                 <div className="absolute bottom-[20%] left-[8%] w-9 h-9 rounded-full border border-red-600/30 p-0.5 z-20 bg-white">
