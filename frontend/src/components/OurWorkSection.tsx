@@ -26,7 +26,7 @@ export function OurWorkSection({ maxRows = 1, title }: { maxRows?: number, title
             OUR WORK
           </p>
           <h2 className="text-2xl md:text-3xl lg:text-[40px] font-bold text-[#1f1f1f] tracking-tight leading-tight">
-            {title || "10+ Years Exp but Countless Innovations"}
+            {title || "Years of Experience, Countless Innovations"}
           </h2>
         </div>
       </div>
@@ -35,12 +35,14 @@ export function OurWorkSection({ maxRows = 1, title }: { maxRows?: number, title
       <div className="w-full bg-[#f4f5f6] border-y border-gray-100 py-6 mb-16 overflow-x-auto">
         <div className="max-w-[1300px] mx-auto flex items-center justify-center gap-8 md:gap-12 min-w-max px-8">
           {categories.map((cat) => (
-            <button 
-              key={cat.name} 
+            <Link 
+              key={cat.name}
+              href={`/${cat.name.toLowerCase().replace(' ', '-')}`}
+              target="_blank"
               className={`text-sm md:text-base font-medium transition-colors ${cat.active ? "text-red-600" : "text-gray-700 hover:text-red-600"}`}
             >
               {cat.name}
-            </button>
+            </Link>
           ))}
         </div>
       </div>

@@ -6,15 +6,15 @@ import Image from 'next/image';
 const accordionData = [
   {
     title: 'Our Mission',
-    content: 'To be innovative, challenge the norms, and inspire excellence in everything we do.',
+    content: 'To help ambitious brands grow into market leaders through digital strategies that actually deliver. As a trusted digital marketing agency in Dubai, we blend creativity, data, and technology into every campaign.',
   },
   {
     title: 'Our Vision',
-    content: 'To empower organizations globally through cutting-edge technology and bold strategies.',
+    content: 'To build a future where every brand we work with has the digital edge to lead, not just compete. Our vision is to be the go-to digital marketing partner in Dubai, known for innovation, results, and setting new standards in how businesses connect with their audiences online.',
   },
   {
     title: 'Our Values',
-    content: 'Integrity, innovation, teamwork, and an unyielding commitment to our clients\' success.',
+    content: 'To make Innovation, integrity, and excellence guide everything we do at CoreUnity Solutions. We work as an extension of your team, combining fresh thinking with honest execution to deliver real impact, because your growth is how we measure our own success.',
   }
 ];
 

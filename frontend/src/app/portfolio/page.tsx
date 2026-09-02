@@ -2,6 +2,12 @@ import React from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { OurWorkSection } from '@/components/OurWorkSection';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Digital Marketing Case Studies in Dubai | CoreUnity Solutions',
+  description: 'Explore CoreUnity Solutions case studies and discover how our digital marketing strategies help brands achieve measurable growth',
+};
 
 export default function PortfolioPage() {
   return (

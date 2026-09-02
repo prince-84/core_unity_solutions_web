@@ -11,6 +11,7 @@ import { TeamSection } from "@/components/TeamSection";
 import { TestimonialSection } from "@/components/TestimonialSection";
 import { BlogSection } from "@/components/BlogSection";
 import { Footer } from "@/components/Footer";
+import { NewTestimonialSection } from "@/components/NewTestimonialSection";
 
 export default function Home() {
   return (
@@ -48,6 +49,7 @@ export default function Home() {
       <TeamSection />
       <TestimonialSection />
       <BlogSection maxPosts={3} />
+      <NewTestimonialSection />
       <Footer />
     </main>
   );

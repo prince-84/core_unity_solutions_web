@@ -91,14 +91,14 @@ export function Footer() {
               Smart Technology Solutions
             </h4>
             <ul className="flex flex-col gap-2 text-[12px] text-gray-400 font-light">
-              <li><Link href="#" className="hover:text-white transition-colors">Web Development</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">UI/UX Design</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Ecommerce Web Development</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Mobile App Development</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Artificial Intelligence</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Chatbot Development</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Virtual Reality Development</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Augmented Reality Development</Link></li>
+              <li><Link href="/services/web-development" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Web Development</Link></li>
+              <li><Link href="/services/ui-ux-design" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">UI/UX Design</Link></li>
+              <li><Link href="/services/ecommerce-web-development" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Ecommerce Web Development</Link></li>
+              <li><Link href="/services/mobile-app-development" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Mobile App Development</Link></li>
+              <li><Link href="/services/artificial-intelligence" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Artificial Intelligence</Link></li>
+              <li><Link href="/services/chatbot-development" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Chatbot Development</Link></li>
+              <li><Link href="/services/virtual-reality-development" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Virtual Reality Development</Link></li>
+              <li><Link href="/services/augmented-reality-development" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Augmented Reality Development</Link></li>
             </ul>
           </div>
 
@@ -109,14 +109,14 @@ export function Footer() {
               Digital Growth & Marketing
             </h4>
             <ul className="flex flex-col gap-2 text-[12px] text-gray-400 font-light">
-              <li><Link href="#" className="hover:text-white transition-colors">Digital Marketing</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Search Engine Optimization (SEO)</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Generative Engine Optimization (GEO)</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Pay-Per-Click Advertising (PPC)</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Social Media Marketing</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Influencer Marketing</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Branding & Creative Design</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">AI Development Company</Link></li>
+              <li><Link href="/services/digital-marketing" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Digital Marketing</Link></li>
+              <li><Link href="/services/search-engine-optimization" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Search Engine Optimization (SEO)</Link></li>
+              <li><Link href="/services/generative-engine-optimization" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Generative Engine Optimization (GEO)</Link></li>
+              <li><Link href="/services/pay-per-click-advertising" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Pay-Per-Click Advertising (PPC)</Link></li>
+              <li><Link href="/services/social-media-marketing" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Social Media Marketing</Link></li>
+              <li><Link href="/services/influencer-marketing" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Influencer Marketing</Link></li>
+              <li><Link href="/services/branding-and-creative-design" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Branding & Creative Design</Link></li>
+              <li><Link href="/services/ai-development-company" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">AI Development Company</Link></li>
             </ul>
           </div>
 
@@ -127,13 +127,13 @@ export function Footer() {
               Industry
             </h4>
             <ul className="flex flex-col gap-3 text-[13px] text-gray-400 font-light">
-              <li><Link href="#" className="hover:text-white transition-colors">Real Estate</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Government</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Healthcare</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Education</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Hospitality</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">legal & law</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">FinTech</Link></li>
+              <li><Link href="/industries/real-estate" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Real Estate</Link></li>
+              <li><Link href="/industries/government" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Government</Link></li>
+              <li><Link href="/industries/healthcare" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Healthcare</Link></li>
+              <li><Link href="/industries/education" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Education</Link></li>
+              <li><Link href="/industries/hospitality" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Hospitality</Link></li>
+              <li><Link href="/industries/legal-and-law" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">legal & law</Link></li>
+              <li><Link href="/industries/fintech" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">FinTech</Link></li>
             </ul>
           </div>
 

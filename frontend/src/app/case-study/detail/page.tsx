@@ -43,7 +43,7 @@ export default function CaseStudyDetailPage() {
       </main>
 
       {/* Main Content Section */}
-      <section className="bg-white text-black py-20 px-6 sm:px-12 md:px-20 relative z-20 rounded-t-[40px] md:rounded-t-[60px] -mt-10">
+      <section className="bg-white text-black py-20 px-6 sm:px-12 md:px-20 relative z-20 -mt-10">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
           
           {/* Left Column: Case Study Details */}

@@ -5,6 +5,12 @@ import { OurClientsSection } from '@/components/OurClientsSection';
 import { Footer } from '@/components/Footer';
 import { AboutAccordion } from '@/components/AboutAccordion';
 import { TeamSection } from '@/components/TeamSection';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Digital Marketing Agency in Dubai | CoreUnity Solutions',
+  description: 'CoreUnity Solutions is a results-driven digital marketing agency in Dubai, combining creativity, data, and technology to help ambitious brands grow and lead online.',
+};
 
 export default function AboutPage() {
   return (

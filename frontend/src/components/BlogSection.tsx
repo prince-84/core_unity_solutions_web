@@ -3,41 +3,49 @@ import Link from "next/link";
 
 const blogPosts = [
   {
-    title: "Want To Succeed In Real Estate? Focus On These Habits",
+    title: "How to Get Your Local Business on Google Maps (Step-by-Step)",
     date: "January 10, 2022",
-    category: "Technology",
-    excerpt: "A fairy tale (alternative names include fairytale, fairy story, magic tale, or wonder tale) is a short story that belongs to the folklore genre.."
+    category: "Local SEO",
+    excerpt: "If you run a local business and you're not showing up on Google Maps, you're handing customers straight to competitors who are...",
+    href: "/blog/local-business-on-google-maps"
   },
   {
-    title: "Want To Succeed In Real Estate? Focus On These Habits",
+    title: "Google Ads vs. Meta Ads: Which Is Right for Your Business?",
     date: "January 10, 2022",
-    category: "Technology",
-    excerpt: "A fairy tale (alternative names include fairytale, fairy story, magic tale, or wonder tale) is a short story that belongs to the folklore genre.."
+    category: "Paid Marketing",
+    excerpt: "If you've spent any time in a marketing Slack channel, a Facebook group for small business owners, or even just a late-night Google search...",
+    href: "/blog/google-ads-vs-meta-ads"
   },
   {
-    title: "Want To Succeed In Real Estate? Focus On These Habits",
+    title: "Daily Manual Tasks Your Business Should Automate Today",
     date: "January 10, 2022",
-    category: "Technology",
-    excerpt: "A fairy tale (alternative names include fairytale, fairy story, magic tale, or wonder tale) is a short story that belongs to the folklore genre.."
+    category: "Business Growth",
+    excerpt: "If you've been putting off the decision to automate manual tasks in your business, this is your sign to stop waiting...",
+    href: "/blog/daily-manual-tasks"
   },
   {
-    title: "Want To Succeed In Real Estate? Focus On These Habits",
+    title: "5 Must-Have Features Every Business Website Needs",
     date: "January 10, 2022",
-    category: "Technology",
-    excerpt: "A fairy tale (alternative names include fairytale, fairy story, magic tale, or wonder tale) is a short story that belongs to the folklore genre.."
+    category: "Web Design",
+    excerpt: "Let's be honest for a second: most business owners don't think about their website until something goes wrong...",
+    href: "/blog/business-website-features"
+  },
+  /*
+  {
+    title: "How to Get Your Local Business on Google Maps (Step-by-Step)",
+    date: "January 10, 2022",
+    category: "Local SEO",
+    excerpt: "If you run a local business and you're not showing up on Google Maps, you're handing customers straight to competitors who are...",
+    href: "/blog/detail"
   },
   {
-    title: "Want To Succeed In Real Estate? Focus On These Habits",
+    title: "How to Get Your Local Business on Google Maps (Step-by-Step)",
     date: "January 10, 2022",
-    category: "Technology",
-    excerpt: "A fairy tale (alternative names include fairytale, fairy story, magic tale, or wonder tale) is a short story that belongs to the folklore genre.."
-  },
-  {
-    title: "Want To Succeed In Real Estate? Focus On These Habits",
-    date: "January 10, 2022",
-    category: "Technology",
-    excerpt: "A fairy tale (alternative names include fairytale, fairy story, magic tale, or wonder tale) is a short story that belongs to the folklore genre.."
+    category: "Local SEO",
+    excerpt: "If you run a local business and you're not showing up on Google Maps, you're handing customers straight to competitors who are...",
+    href: "/blog/detail"
   }
+  */
 ];
 
 export function BlogSection({ maxPosts }: { maxPosts?: number }) {
@@ -65,7 +73,7 @@ export function BlogSection({ maxPosts }: { maxPosts?: number }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayPosts.map((post, index) => (
             <Link 
-              href="/blog/detail"
+              href={post.href}
               key={index} 
               className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition-shadow duration-300 group"
             >
