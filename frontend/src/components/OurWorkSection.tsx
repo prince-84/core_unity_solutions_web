@@ -3,13 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 const categories = [
-  { name: "Website", active: false },
-  { name: "Mobile App", active: false },
-  { name: "SMM", active: false },
-  { name: "PPC", active: false },
-  { name: "PRINT", active: false },
-  { name: "SEO", active: false },
-  { name: "BRANDING", active: false },
+  { name: "Website", href: "/case-study/website", active: false },
+  { name: "Mobile App", href: "/mobile-app", active: false },
+  { name: "SMM", href: "/smm", active: false },
+  { name: "PPC", href: "/ppc", active: false },
+  { name: "PRINT", href: "/print", active: false },
+  { name: "SEO", href: "/seo", active: false },
+  { name: "BRANDING", href: "/branding", active: false },
 ];
 
 export function OurWorkSection({ maxRows = 1, title }: { maxRows?: number, title?: string }) {
@@ -37,7 +37,7 @@ export function OurWorkSection({ maxRows = 1, title }: { maxRows?: number, title
           {categories.map((cat) => (
             <Link 
               key={cat.name}
-              href={`/${cat.name.toLowerCase().replace(' ', '-')}`}
+              href={cat.href}
               target="_blank"
               className={`text-sm md:text-base font-medium transition-colors ${cat.active ? "text-red-600" : "text-gray-700 hover:text-red-600"}`}
             >
