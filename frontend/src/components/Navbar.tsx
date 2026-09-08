@@ -42,13 +42,13 @@ export function Navbar() {
 
       {/* Navigation Links */}
       <div className="hidden md:flex items-center gap-6 text-sm font-medium">
-        {navLinks.map((link) => (
+        {navLinks.map((link: { name: string; href: string; dropdown?: { name: string; href: string }[] }) => (
           link.dropdown ? (
             <div key={link.name} className="relative group">
               <Link
                 href={link.href}
                 className={`flex items-center gap-1 px-4 py-1.5 transition-colors ${
-                  pathname.startsWith(link.href) || (link.dropdown && link.dropdown.some(d => pathname === d.href))
+                  pathname.startsWith(link.href) || (link.dropdown && link.dropdown.some((d: { name: string; href: string }) => pathname === d.href))
                     ? "bg-[#cc2936] text-white rounded-xl"
                     : "text-gray-300 hover:text-white"
                 }`}
@@ -57,7 +57,7 @@ export function Navbar() {
                 <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
               </Link>
               <div className="absolute top-full mt-4 w-48 bg-black/90 backdrop-blur-md border border-gray-800 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col overflow-hidden">
-                {link.dropdown.map((dropItem) => (
+                {link.dropdown.map((dropItem: { name: string; href: string }) => (
                   <Link
                     key={dropItem.name}
                     href={dropItem.href}
@@ -92,10 +92,10 @@ export function Navbar() {
         >
           Speak to an expert
         </button>
-        <a href="https://wa.me/yournumber" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-300 hover:text-white hover:border-gray-500 transition-colors" title="WhatsApp">
+        <a href="https://wa.me/971505559646" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-300 hover:text-white hover:border-gray-500 transition-colors" title="WhatsApp">
           <Image src="/whatsapp_logo.png" alt="WhatsApp" width={18} height={18} className="object-contain" />
         </a>
-        <a href="tel:+1234567890" className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-300 hover:text-white hover:border-gray-500 transition-colors hidden sm:flex" title="Phone">
+        <a href="tel:+971505559646" className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-300 hover:text-white hover:border-gray-500 transition-colors hidden sm:flex" title="Phone">
           <Image src="/phone_logo.png" alt="Phone" width={18} height={18} className="object-contain brightness-0 invert" />
         </a>
         <button className="md:hidden w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-300 hover:text-white hover:border-gray-500 transition-colors">

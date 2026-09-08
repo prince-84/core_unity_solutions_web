@@ -283,25 +283,25 @@ export default function BlogDetailPage() {
               <h4 className="font-bold text-[17px] mb-3 text-gray-900">Contact With Us Now !</h4>
               <div className="bg-[#f2f2f2] rounded-2xl p-6 shadow-sm border border-gray-100">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 bg-gray-300 rounded-full overflow-hidden flex-shrink-0 relative">
-                    <Image src="/zeeshan.png.png" alt="Zeeshan Aashiq" fill className="object-cover" />
+                  <div className="w-14 h-14 bg-white rounded-full overflow-hidden flex-shrink-0 relative p-1 shadow-sm border border-gray-200">
+                    <Image src="/Core Unity Logo-05.svg" alt="CoreUnity Logo" fill className="object-contain p-1 scale-110" />
                   </div>
                   <div className="flex flex-col gap-1">
                     <h5 className="font-bold text-gray-900 text-[18px]">Zeeshan Aashiq</h5>
                     <div className="flex items-center gap-1.5">
                        <svg className="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                       <p className="text-[15px] text-gray-800 tracking-wide">+92 343 1891919</p>
+                       <a href="tel:+971505559646" className="text-[15px] text-gray-800 tracking-wide hover:text-black transition-colors">+971 50 555 9646</a>
                     </div>
                   </div>
                 </div>
                 <div className="flex gap-3">
-                  <button className="flex-1 bg-black text-white py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
+                  <a href="tel:+971505559646" className="flex-1 bg-black text-white py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors text-center">
                     Call
-                  </button>
-                  <button className="flex-1 bg-[#d32f2f] text-white py-2 rounded-full text-sm font-medium hover:bg-red-700 transition-colors flex items-center justify-center gap-2">
+                  </a>
+                  <a href="https://wa.me/971505559646" target="_blank" rel="noopener noreferrer" className="flex-1 bg-[#d32f2f] text-white py-2 rounded-full text-sm font-medium hover:bg-red-700 transition-colors flex items-center justify-center gap-2">
                     <Image src="/whatsapp_logo.png" alt="WhatsApp" width={16} height={16} />
                     WhatsApp
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

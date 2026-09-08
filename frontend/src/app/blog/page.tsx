@@ -2,6 +2,13 @@ import React from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { BlogSection } from '@/components/BlogSection';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Digital Marketing Blog | SEO & Business Growth Tips',
+  description: 'Read expert insights on SEO, Google Ads, PPC, and digital marketing strategies from CoreUnity Solutions, a leading Dubai-based digital agency.',
+  keywords: ['digital marketing blog', 'SEO tips', 'digital marketing strategy Dubai'],
+};
 
 export default function BlogPage() {
   return (

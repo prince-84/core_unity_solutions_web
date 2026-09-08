@@ -140,7 +140,6 @@ export function ScheduleCallModal({ isOpen, onClose }: ScheduleCallModalProps) {
                 value={phone}
                 onChange={(phoneVal) => setPhone(phoneVal)}
                 inputClassName="react-international-phone-input"
-                countrySelectorClassName="react-international-phone-country-selector"
               />
             </div>
           </div>

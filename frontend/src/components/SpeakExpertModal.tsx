@@ -142,7 +142,6 @@ export function SpeakExpertModal({ isOpen, onClose }: SpeakExpertModalProps) {
                 value={phone}
                 onChange={(phoneVal) => setPhone(phoneVal)}
                 inputClassName="react-international-phone-input"
-                countrySelectorClassName="react-international-phone-country-selector"
               />
             </div>
           </div>

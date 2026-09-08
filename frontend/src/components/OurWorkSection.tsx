@@ -38,7 +38,6 @@ export function OurWorkSection({ maxRows = 1, title }: { maxRows?: number, title
             <Link 
               key={cat.name}
               href={cat.href}
-              target="_blank"
               className={`text-sm md:text-base font-medium transition-colors ${cat.active ? "text-red-600" : "text-gray-700 hover:text-red-600"}`}
             >
               {cat.name}
@@ -72,7 +71,7 @@ export function OurWorkSection({ maxRows = 1, title }: { maxRows?: number, title
                     </p>
                   </div>
 
-                  <Link href="/case-study/detail" className="bg-[#cc2936] hover:bg-red-700 text-white px-6 py-2.5 rounded-full text-xs font-semibold transition-colors shadow-md">
+                  <Link href="/case-study/website" className="bg-[#cc2936] hover:bg-red-700 text-white px-6 py-2.5 rounded-full text-xs font-semibold transition-colors shadow-md">
                     View Case Study
                   </Link>
                 </div>
@@ -103,7 +102,7 @@ export function OurWorkSection({ maxRows = 1, title }: { maxRows?: number, title
                     </p>
                   </div>
 
-                  <Link href="/case-study/detail" className="bg-[#cc2936] hover:bg-red-700 text-white px-6 py-2.5 rounded-full text-xs font-semibold transition-colors shadow-md">
+                  <Link href="/mobile-app" className="bg-[#cc2936] hover:bg-red-700 text-white px-6 py-2.5 rounded-full text-xs font-semibold transition-colors shadow-md">
                     View Case Study
                   </Link>
                 </div>

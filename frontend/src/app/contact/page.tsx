@@ -1,6 +1,13 @@
 import React from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact Us | CoreUnity Solutions, Business Bay Dubai',
+  description: 'Contact CoreUnity Solutions, a Dubai digital marketing agency, for web development, SEO & branding services. Located in Business Bay, Dubai.',
+  keywords: ['contact digital marketing agency Dubai', 'Business Bay Dubai agency'],
+};
 
 export default function ContactPage() {
   return (

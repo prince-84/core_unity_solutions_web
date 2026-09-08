@@ -13,6 +13,14 @@ import { BlogSection } from "@/components/BlogSection";
 import { Footer } from "@/components/Footer";
 import { NewTestimonialSection } from "@/components/NewTestimonialSection";
 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Digital Marketing Agency in Dubai, UAE | CoreUnity Solutions',
+  description: 'CoreUnity Solutions is a Dubai-based digital marketing agency offering web development, SEO, branding & PPC. Trusted by 500+ clients. Get a free quote.',
+  keywords: ['digital marketing agency Dubai', 'digital agency UAE', 'web development company Dubai'],
+};
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-black overflow-x-hidden relative flex flex-col font-sans">

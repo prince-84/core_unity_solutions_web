@@ -15,7 +15,7 @@ export function Hero() {
   const heroData = {
     title: 'We are a bold and innovative digital<br />agency based in the UAE.',
     button_text: 'Schedule a call',
-    button_icon: '/zeeshan.png.png'
+    button_icon: '/Core Unity Logo-05.svg'
   };
 
   return (
@@ -38,9 +38,9 @@ export function Hero() {
           className="relative z-10 bg-[#b71c1c] hover:bg-red-700 text-white pl-4 pr-1.5 py-1.5 rounded-full font-medium text-xs md:text-sm flex items-center gap-3 transition-colors shadow-[0_0_15px_rgba(220,38,38,0.5)] cursor-pointer"
         >
           {heroData.button_text}
-          <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gray-800 flex items-center justify-center overflow-hidden shadow-inner">
+          <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center p-0.5 shadow-md overflow-hidden flex-shrink-0">
             {heroData.button_icon ? (
-              <img src={heroData.button_icon} alt="icon" className="w-full h-full object-cover" />
+              <img src={heroData.button_icon} alt="CoreUnity Icon" className="w-full h-full object-contain scale-110" />
             ) : (
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="#6B7280"/>
