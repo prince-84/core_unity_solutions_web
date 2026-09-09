@@ -66,21 +66,21 @@ export function Footer() {
             </div>
 
             <div className="flex items-center gap-4 mt-4">
-              <Link href="#" className="opacity-80 hover:opacity-100 transition-opacity relative w-5 h-5">
+              <a href="https://www.facebook.com/coreunitysolutions" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity relative w-5 h-5">
                 <Image src="/fb_image.png" alt="Facebook" fill className="object-contain" />
-              </Link>
-              <Link href="#" className="opacity-80 hover:opacity-100 transition-opacity relative w-5 h-5">
+              </a>
+              <a href="https://www.instagram.com/coreunitysolutions/" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity relative w-5 h-5">
                 <Image src="/insta_logo.png" alt="Instagram" fill className="object-contain" />
-              </Link>
-              <Link href="#" className="opacity-80 hover:opacity-100 transition-opacity relative w-5 h-5">
+              </a>
+              <a href="https://www.youtube.com/@coreunitysolutions" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity relative w-5 h-5">
                 <Image src="/youtube_logo.png" alt="YouTube" fill className="object-contain" />
-              </Link>
-              <Link href="#" className="opacity-80 hover:opacity-100 transition-opacity relative w-5 h-5">
+              </a>
+              <a href="https://www.linkedin.com/company/coreunitysolutions" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity relative w-5 h-5">
                 <Image src="/linkdin_image.png" alt="LinkedIn" fill className="object-contain" />
-              </Link>
-              <Link href="#" className="opacity-80 hover:opacity-100 transition-opacity relative w-5 h-5">
-                <Image src="/be_image.png" alt="Behance" fill className="object-contain" />
-              </Link>
+              </a>
+              <a href="https://www.tiktok.com/@coreunitysolutions?lang=en" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity relative w-5 h-5 flex items-center justify-center text-white">
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.85.12V9.3a6.33 6.33 0 0 0-1-.08A6.26 6.26 0 0 0 3 15.48a6.26 6.26 0 0 0 10.7 4.41c.23-.23.44-.48.62-.75V12a8.28 8.28 0 0 0 5.27 1.85v-3.72a4.83 4.83 0 0 1-3.77-1.48v-2h3.77v.03z"/></svg>
+              </a>
             </div>
           </div>
 
@@ -143,9 +143,9 @@ export function Footer() {
         <div className="max-w-[1400px] mx-auto mt-10 relative z-10 border-t border-white/10 pt-4 pb-2 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400 font-light">
           <p>© 2026. CoreUnity Solutions</p>
           <div className="flex items-center gap-4">
-            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <span className="text-gray-600">|</span>
-            <Link href="#" className="hover:text-white transition-colors">Terms & Conditions</Link>
+            <Link href="/terms-and-conditions" className="hover:text-white transition-colors">Terms & Conditions</Link>
           </div>
         </div>
 

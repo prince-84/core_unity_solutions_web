@@ -77,7 +77,7 @@ export default function ContactPage() {
                     <img src="/mail_logo.png" alt="Email" className="w-full h-full object-contain" />
                   </div>
                   <h4 className="font-bold text-[#1f1f1f] text-[15px] mb-1">Email Address</h4>
-                  <p className="text-gray-400 text-[13px]">contact@coreUnitysolutions.com</p>
+                  <a href="mailto:contact@coreunitysolutions.com" className="text-gray-400 hover:text-black transition-colors text-[13px]">contact@coreunitysolutions.com</a>
                 </div>
               </div>
 
