@@ -31,9 +31,11 @@ export function Navbar() {
     { name: "Contact", href: "/contact" },
   ];
 
+  const isSolidNav = isScrolled || (pathname ? (pathname.includes("privacy-policy") || pathname.includes("terms-and-conditions")) : false);
+
   return (
     <nav className={`fixed top-0 left-0 w-full flex items-center justify-between px-8 py-4 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-black shadow-lg border-b border-white/5' : 'bg-transparent'
+      isSolidNav ? 'bg-black shadow-lg border-b border-white/5' : 'bg-transparent'
     }`}>
       {/* Logo */}
       <div className="flex items-center">

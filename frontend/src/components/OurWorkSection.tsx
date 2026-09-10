@@ -12,8 +12,122 @@ const categories = [
   { name: "BRANDING", href: "/branding", active: false },
 ];
 
-export function OurWorkSection({ maxRows = 1, title }: { maxRows?: number, title?: string }) {
-  const rows = Array.from({ length: maxRows });
+const cardsData = [
+  {
+    title: (
+      <>
+        Website<br />
+        development
+      </>
+    ),
+    stat: "145 %",
+    description: "An increase in online bookings during the first 90 days.",
+    href: "/case-study/website",
+    image: "/dpworld_image.png",
+    alt: "Website Development",
+    aspect: "aspect-[3/4]",
+    maxW: "max-w-[160px]",
+    maxWDesc: "max-w-[220px]",
+  },
+  {
+    title: (
+      <>
+        Mobile<br />
+        development
+      </>
+    ),
+    stat: "40 %",
+    description: "Share of total online sales driven through the mobile app.",
+    href: "/mobile-app",
+    image: "/sharjahuni_image.png",
+    alt: "Mobile Development",
+    aspect: "aspect-[4/3]",
+    maxW: "max-w-[180px]",
+    maxWDesc: "max-w-[200px]",
+  },
+  {
+    title: (
+      <>
+        Social media<br />
+        marketing
+      </>
+    ),
+    stat: "180 %",
+    description: "A growth in social media followers and community reach.",
+    href: "/smm",
+    image: "/dpworld_image.png",
+    alt: "Social Media Marketing",
+    aspect: "aspect-[3/4]",
+    maxW: "max-w-[160px]",
+    maxWDesc: "max-w-[210px]",
+  },
+  {
+    title: (
+      <>
+        Pay per click<br />
+        advertising
+      </>
+    ),
+    stat: "400 %",
+    description: "Improvement in overall ad spend efficiency (ROAS).",
+    href: "/ppc",
+    image: "/sharjahuni_image.png",
+    alt: "Pay Per Click Advertising",
+    aspect: "aspect-[4/3]",
+    maxW: "max-w-[180px]",
+    maxWDesc: "max-w-[210px]",
+  },
+  {
+    title: (
+      <>
+        Print Media &<br />
+        Design Strategy
+      </>
+    ),
+    stat: "200 %",
+    description: "A surge in foot traffic from customers outside the local area.",
+    href: "/print",
+    image: "/dpworld_image.png",
+    alt: "Print Media & Design Strategy",
+    aspect: "aspect-[3/4]",
+    maxW: "max-w-[160px]",
+    maxWDesc: "max-w-[210px]",
+  },
+  {
+    title: (
+      <>
+        SEO<br />
+        strategy
+      </>
+    ),
+    stat: "250 %",
+    description: "A surge in Google Maps local searches and visibility.",
+    href: "/seo",
+    image: "/sharjahuni_image.png",
+    alt: "SEO strategy",
+    aspect: "aspect-[4/3]",
+    maxW: "max-w-[180px]",
+    maxWDesc: "max-w-[210px]",
+  },
+  {
+    title: (
+      <>
+        Branding
+      </>
+    ),
+    stat: "25 %",
+    description: "Increase in property inquiry conversion rates via new branding.",
+    href: "/branding",
+    image: "/dpworld_image.png",
+    alt: "Branding",
+    aspect: "aspect-[3/4]",
+    maxW: "max-w-[160px]",
+    maxWDesc: "max-w-[210px]",
+  },
+];
+
+export function OurWorkSection({ maxRows, title }: { maxRows?: number, title?: string }) {
+  const cardsToDisplay = maxRows ? cardsData.slice(0, maxRows * 2) : cardsData;
 
   return (
     <section className="w-full bg-white text-black py-24 border-b-2 border-blue-400">
@@ -49,73 +163,42 @@ export function OurWorkSection({ maxRows = 1, title }: { maxRows?: number, title
       <div className="max-w-[1100px] mx-auto px-4 lg:px-8">
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          
-          {rows.map((_, rowIndex) => (
-            <React.Fragment key={rowIndex}>
-              {/* DP World Card */}
-              <div className="bg-[#f8f9fa] rounded-[24px] p-8 lg:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 border border-gray-100 shadow-sm relative overflow-hidden group">
-                {/* Background decorative zebra pattern */}
-                <div className="absolute inset-0 z-0 opacity-100 pointer-events-none" style={{ backgroundImage: 'url("/white_bg.png")', backgroundSize: 'cover', backgroundPosition: 'center center' }} />
+          {cardsToDisplay.map((card, index) => (
+            <div 
+              key={index}
+              className={`bg-[#f8f9fa] rounded-[24px] p-8 lg:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 border border-gray-100 shadow-sm relative overflow-hidden group ${
+                index === cardsToDisplay.length - 1 && cardsToDisplay.length % 2 !== 0 
+                  ? "md:col-span-2 max-w-[536px] mx-auto w-full" 
+                  : ""
+              }`}
+            >
+              {/* Background decorative zebra pattern */}
+              <div className="absolute inset-0 z-0 opacity-100 pointer-events-none" style={{ backgroundImage: 'url("/white_bg.png")', backgroundSize: 'cover', backgroundPosition: 'center center' }} />
+              
+              <div className="flex flex-col items-start z-10 w-full sm:w-1/2">
+                <h3 className="text-xl lg:text-[26px] font-bold text-gray-900 leading-tight mb-4 uppercase">
+                  {card.title}
+                </h3>
                 
-                <div className="flex flex-col items-start z-10 w-full sm:w-1/2">
-                  <h3 className="text-xl lg:text-[26px] font-bold text-gray-900 leading-tight mb-4">
-                    Engineered DP<br />
-                    World for Global<br />
-                    Reach
-                  </h3>
-                  
-                  <div className="mb-6">
-                    <span className="text-3xl lg:text-4xl font-bold text-[#c52833] block mb-1">120 %</span>
-                    <p className="text-gray-500 text-xs md:text-sm max-w-[180px]">
-                      A surge in website visitors during key events.
-                    </p>
-                  </div>
-
-                  <Link href="/case-study/website" className="bg-[#cc2936] hover:bg-red-700 text-white px-6 py-2.5 rounded-full text-xs font-semibold transition-colors shadow-md">
-                    View Case Study
-                  </Link>
+                <div className="mb-6">
+                  <span className="text-3xl lg:text-4xl font-bold text-[#c52833] block mb-1">{card.stat}</span>
+                  <p className={`text-gray-500 text-xs md:text-sm ${card.maxWDesc}`}>
+                    {card.description}
+                  </p>
                 </div>
 
-                <div className="w-full sm:w-1/2 flex justify-end z-10">
-                  <div className="relative w-full max-w-[160px] aspect-[3/4]">
-                    <Image src="/dpworld_image.png" alt="DP World Burj Khalifa" fill className="object-contain drop-shadow-2xl rounded-xl transition-transform duration-500 group-hover:scale-105" />
-                  </div>
-                </div>
+                <Link href={card.href} className="bg-[#cc2936] hover:bg-red-700 text-white px-6 py-2.5 rounded-full text-xs font-semibold transition-colors shadow-md">
+                  View Case Study
+                </Link>
               </div>
 
-              {/* Sharjah University Card */}
-              <div className="bg-[#f8f9fa] rounded-[24px] p-8 lg:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 border border-gray-100 shadow-sm relative overflow-hidden group">
-                {/* Background decorative zebra pattern */}
-                <div className="absolute inset-0 z-0 opacity-100 pointer-events-none" style={{ backgroundImage: 'url("/white_bg.png")', backgroundSize: 'cover', backgroundPosition: 'center center' }} />
-                
-                <div className="flex flex-col items-start z-10 w-full sm:w-1/2">
-                  <h3 className="text-xl lg:text-[26px] font-bold text-gray-900 leading-tight mb-4">
-                    Seamless User<br />
-                    Experience for<br />
-                    University of Sharjah
-                  </h3>
-                  
-                  <div className="mb-6">
-                    <span className="text-3xl lg:text-4xl font-bold text-[#c52833] block mb-1">103 %</span>
-                    <p className="text-gray-500 text-xs md:text-sm max-w-[200px]">
-                      boost in customer engagement and user journey.
-                    </p>
-                  </div>
-
-                  <Link href="/mobile-app" className="bg-[#cc2936] hover:bg-red-700 text-white px-6 py-2.5 rounded-full text-xs font-semibold transition-colors shadow-md">
-                    View Case Study
-                  </Link>
-                </div>
-
-                <div className="w-full sm:w-1/2 flex justify-end z-10">
-                  <div className="relative w-full max-w-[180px] aspect-[4/3]">
-                    <Image src="/sharjahuni_image.png" alt="University of Sharjah" fill className="object-contain transition-transform duration-500 group-hover:scale-105" />
-                  </div>
+              <div className="w-full sm:w-1/2 flex justify-end z-10">
+                <div className={`relative w-full ${card.maxW} ${card.aspect}`}>
+                  <Image src={card.image} alt={card.alt} fill className="object-contain drop-shadow-2xl rounded-xl transition-transform duration-500 group-hover:scale-105" />
                 </div>
               </div>
-            </React.Fragment>
+            </div>
           ))}
-
         </div>
       </div>
     </section>

@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="min-h-screen bg-white flex flex-col justify-between text-gray-800">
+    <div className="min-h-screen bg-white flex flex-col justify-between text-gray-800 font-sans">
       <Navbar />
       
-      <main className="max-w-4xl mx-auto px-6 py-16 flex-grow">
+      <main className="max-w-4xl mx-auto px-6 pt-28 pb-16 flex-grow w-full">
         <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6 border-b border-gray-200 pb-4">
           Privacy Policy
         </h1>

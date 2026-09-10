@@ -52,7 +52,7 @@ export default function Home() {
 
       <ServicesSection />
       <CoreStrengthsSection />
-      <OurWorkSection title="10+ yrs of expertise in providing innovative solutions" />
+      <OurWorkSection maxRows={1} title="10+ yrs of expertise in providing innovative solutions" />
       <OurClientsSection />
       <TeamSection />
       <TestimonialSection />

@@ -66,7 +66,7 @@ export default function BrandingCaseStudyPage() {
 
             {/* Overview */}
             <div>
-              <h3 className="text-3xl font-bold mb-4">Client/Project Overview</h3>
+              <h3 className="text-3xl font-bold mb-4">Project Overview</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 [Salwa Real Estate], is a reputable brokerage and advisory firm specializing in sales, leasing, off-plan, and property management across the UAE. With over eight years of experience in Dubai's dynamic real estate market, the firm had built a loyal client base through word-of-mouth and agent relationships.
               </p>
@@ -107,9 +107,9 @@ export default function BrandingCaseStudyPage() {
               </p>
             </div>
 
-            {/* Strategy/Solution */}
+            {/* Strategy */}
             <div>
-              <h3 className="text-3xl font-bold mb-4">Strategy/Solution</h3>
+              <h3 className="text-3xl font-bold mb-4">Strategy</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 We developed a comprehensive digital transformation strategy:
               </p>
@@ -150,9 +150,9 @@ export default function BrandingCaseStudyPage() {
               </ul>
             </div>
 
-            {/* Results/Impact */}
+            {/* Results */}
             <div>
-              <h3 className="text-3xl font-bold mb-4">Results/Impact</h3>
+              <h3 className="text-3xl font-bold mb-4">Results</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 After four months of execution, [Salwa Real Estate] achieved remarkable growth:
               </p>

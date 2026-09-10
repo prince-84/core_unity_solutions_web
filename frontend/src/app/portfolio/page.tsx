@@ -47,7 +47,7 @@ export default function PortfolioPage() {
       </main>
 
       {/* Our Work Section */}
-      <OurWorkSection maxRows={3} />
+      <OurWorkSection maxRows={4} />
 
       {/* Footer is pushed to the bottom of the page */}
       <div className="mt-auto">
