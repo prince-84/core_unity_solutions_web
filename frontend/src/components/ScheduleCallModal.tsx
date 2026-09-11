@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import { X, Calendar, User, Mail, Check, Loader2 } from "lucide-react";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
+import { submitLead } from "@/lib/leadService";
 
 interface ScheduleCallModalProps {
   isOpen: boolean;
@@ -48,24 +49,29 @@ export function ScheduleCallModal({ isOpen, onClose }: ScheduleCallModalProps) {
 
   if (!isOpen || !mounted) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
 
-    // Simulate API connection to Laravel backend
+    await submitLead({
+      formType: "Schedule Call Modal",
+      name,
+      email,
+      phone,
+      service,
+      message,
+    });
+
+    setStatus("success");
     setTimeout(() => {
-      setStatus("success");
-      setTimeout(() => {
-        // Reset and close
-        onClose();
-        setName("");
-        setEmail("");
-        setPhone("");
-        setService("");
-        setMessage("");
-        setStatus("idle");
-      }, 1500);
-    }, 1800);
+      onClose();
+      setName("");
+      setEmail("");
+      setPhone("");
+      setService("");
+      setMessage("");
+      setStatus("idle");
+    }, 1500);
   };
 
   return createPortal(
@@ -172,7 +178,7 @@ export function ScheduleCallModal({ isOpen, onClose }: ScheduleCallModalProps) {
           </div>
 
           <div>
-            <label htmlFor="modal-message" className="block text-xs font-semibold text-zinc-600 uppercase tracking-wider mb-1.5">Brief Message</label>
+            <label htmlFor="modal-message" className="block text-xs font-semibold text-zinc-600 uppercase tracking-wider mb-1.5">Brief Message (Optional)</label>
             <textarea 
               id="modal-message"
               value={message}

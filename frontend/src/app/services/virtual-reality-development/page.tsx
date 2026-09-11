@@ -1,5 +1,5 @@
 "use client";
-import { PhoneInputComponent } from '@/components/PhoneInputComponent';
+import { ServiceInquiryForm } from '@/components/ServiceInquiryForm';
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Navbar } from '@/components/Navbar';
@@ -126,36 +126,7 @@ export default function VirtualRealityDevelopmentPage() {
 
           {/* Right Content: Form */}
           <div className="flex justify-center lg:justify-end w-full">
-            <div className="bg-[#1f1f1f] border-2 border-white rounded-3xl p-8 md:p-10 w-full max-w-[480px]">
-              <h3 className="text-2xl font-bold text-white mb-2">Have any questions?</h3>
-              <p className="text-sm text-gray-400 mb-8 font-light">or tell us about your upcoming project.</p>
-
-              <form className="flex flex-col gap-4">
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] text-gray-300 ml-1 font-medium">Name*</label>
-                  <input type="text" placeholder="John Doe" className="bg-white text-black px-4 py-3 rounded-lg text-sm w-full outline-none placeholder:text-gray-400" />
-                </div>
-                
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] text-gray-300 ml-1 font-medium">Email*</label>
-                  <input type="email" placeholder="hello@gmail.com" className="bg-white text-black px-4 py-3 rounded-lg text-sm w-full outline-none placeholder:text-gray-400" />
-                </div>
-
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] text-gray-300 ml-1 font-medium">Phone No*</label>
-                  <PhoneInputComponent />
-                </div>
-
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] text-gray-300 ml-1 font-medium">Tell us about your project</label>
-                  <textarea placeholder="Describe your goals, timeline, or requirements..." rows={3} className="bg-white text-black px-4 py-3 rounded-lg text-sm w-full outline-none resize-none placeholder:text-gray-400" />
-                </div>
-
-                <button type="button" className="w-full bg-[#cc2936] hover:bg-red-700 text-white font-bold tracking-[0.2em] text-sm py-4 rounded-lg mt-3 transition-colors shadow-lg">
-                  SUBMIT
-                </button>
-              </form>
-            </div>
+            <ServiceInquiryForm pageName="Virtual Reality Development" />
           </div>
 
         </div>

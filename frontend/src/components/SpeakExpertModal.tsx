@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import { X, ShieldAlert, Phone, Mail, User, Check, Loader2, MessageSquare } from "lucide-react";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
+import { submitLead } from "@/lib/leadService";
 
 interface SpeakExpertModalProps {
   isOpen: boolean;
@@ -49,25 +50,31 @@ export function SpeakExpertModal({ isOpen, onClose }: SpeakExpertModalProps) {
 
   if (!isOpen || !mounted) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
 
-    // Simulate API connection to Laravel backend
+    await submitLead({
+      formType: "Speak to Expert Modal",
+      name,
+      email,
+      phone,
+      specialist,
+      contactMethod,
+      question,
+    });
+
+    setStatus("success");
     setTimeout(() => {
-      setStatus("success");
-      setTimeout(() => {
-        // Reset and close
-        onClose();
-        setName("");
-        setEmail("");
-        setPhone("");
-        setSpecialist("");
-        setContactMethod("email");
-        setQuestion("");
-        setStatus("idle");
-      }, 1500);
-    }, 1800);
+      onClose();
+      setName("");
+      setEmail("");
+      setPhone("");
+      setSpecialist("");
+      setContactMethod("email");
+      setQuestion("");
+      setStatus("idle");
+    }, 1500);
   };
 
   return createPortal(
@@ -200,14 +207,13 @@ export function SpeakExpertModal({ isOpen, onClose }: SpeakExpertModalProps) {
           </div>
 
           <div>
-            <label htmlFor="expert-question" className="block text-xs font-semibold text-zinc-600 uppercase tracking-wider mb-1.5">Core Question / Project Brief</label>
+            <label htmlFor="expert-question" className="block text-xs font-semibold text-zinc-600 uppercase tracking-wider mb-1.5">Core Question / Project Brief (Optional)</label>
             <div className="relative">
               <MessageSquare className="absolute left-3.5 top-3.5 w-4 h-4 text-zinc-400" />
               <textarea 
                 id="expert-question"
                 value={question}
                 onChange={(e) => setQuestion(e.target.value)}
-                required
                 rows={3} 
                 className="w-full bg-zinc-50 border border-zinc-200 rounded-xl pl-11 pr-4 py-3 text-zinc-900 text-sm focus:outline-none focus:border-red-600/80 focus:ring-1 focus:ring-red-600/25 transition-all duration-200 resize-none placeholder-zinc-400"
                 placeholder="What challenges can our experts help you solve?"

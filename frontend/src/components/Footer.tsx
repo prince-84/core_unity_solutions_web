@@ -1,8 +1,35 @@
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
+import { submitLead } from "@/lib/leadService";
 
 export function Footer() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setStatus("loading");
+    await submitLead({
+      formType: "Newsletter Subscription",
+      name,
+      email,
+    });
+
+    setStatus("success");
+    setTimeout(() => {
+      setName("");
+      setEmail("");
+      setStatus("idle");
+    }, 4000);
+  };
+
   return (
     <footer className="w-full flex flex-col font-sans">
       
@@ -22,21 +49,41 @@ export function Footer() {
           </div>
 
           {/* Right Inputs */}
-          <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
-            <input 
-              type="text" 
-              placeholder="Name" 
-              className="bg-white px-5 py-2.5 rounded-full text-black focus:outline-none w-full sm:w-[200px] text-sm"
-            />
-            <input 
-              type="email" 
-              placeholder="Email" 
-              className="bg-white px-5 py-2.5 rounded-full text-black focus:outline-none w-full sm:w-[240px] text-sm"
-            />
-            <button className="bg-black hover:bg-gray-900 text-white px-6 py-2.5 rounded-full border border-white/20 text-sm font-bold flex items-center gap-2 transition-colors w-full sm:w-auto justify-center shadow-md">
-              Subscribe <ArrowRight size={16} />
-            </button>
-          </div>
+          {status === "success" ? (
+            <div className="flex items-center gap-2 bg-black/30 border border-white/30 px-6 py-3 rounded-full text-white text-sm font-medium animate-fade-in">
+              <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+              <span>Thank you for subscribing!</span>
+            </div>
+          ) : (
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+              <input 
+                type="text" 
+                placeholder="Name" 
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="bg-white px-5 py-2.5 rounded-full text-black focus:outline-none w-full sm:w-[200px] text-sm"
+              />
+              <input 
+                type="email" 
+                required
+                placeholder="Email*" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="bg-white px-5 py-2.5 rounded-full text-black focus:outline-none w-full sm:w-[240px] text-sm"
+              />
+              <button 
+                type="submit"
+                disabled={status === "loading"}
+                className="bg-black hover:bg-gray-900 disabled:opacity-75 text-white px-6 py-2.5 rounded-full border border-white/20 text-sm font-bold flex items-center gap-2 transition-colors w-full sm:w-auto justify-center shadow-md cursor-pointer"
+              >
+                {status === "loading" ? (
+                  <>Subscribing <Loader2 className="w-4 h-4 animate-spin" /></>
+                ) : (
+                  <>Subscribe <ArrowRight size={16} /></>
+                )}
+              </button>
+            </form>
+          )}
 
         </div>
       </div>

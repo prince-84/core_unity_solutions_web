@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { ContactForm } from '@/components/ContactForm';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -96,49 +97,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right Side: Form */}
-          <div className="bg-[#fafafa] border border-gray-200 rounded-[24px] p-8 lg:p-10 shadow-sm">
-            <form className="flex flex-col gap-4">
-              
-              <div className="flex gap-4">
-                <input 
-                  type="text" 
-                  placeholder="First Name" 
-                  className="w-1/2 border border-gray-200 rounded-lg p-3.5 text-[14px] outline-none focus:border-gray-400 text-black placeholder:text-gray-400 bg-white"
-                />
-                <input 
-                  type="text" 
-                  placeholder="Last Name" 
-                  className="w-1/2 border border-gray-200 rounded-lg p-3.5 text-[14px] outline-none focus:border-gray-400 text-black placeholder:text-gray-400 bg-white"
-                />
-              </div>
-
-              <input 
-                type="text" 
-                placeholder="Phone No" 
-                className="w-full border border-gray-200 rounded-lg p-3.5 text-[14px] outline-none focus:border-gray-400 text-black placeholder:text-gray-400 bg-white"
-              />
-
-              <input 
-                type="email" 
-                placeholder="E-mail" 
-                className="w-full border border-gray-200 rounded-lg p-3.5 text-[14px] outline-none focus:border-gray-400 text-black placeholder:text-gray-400 bg-white"
-              />
-
-              <textarea 
-                placeholder="Message" 
-                rows={5}
-                className="w-full border border-gray-200 rounded-lg p-3.5 text-[14px] outline-none focus:border-gray-400 text-black placeholder:text-gray-400 resize-none bg-white"
-              />
-
-              <button 
-                type="button" 
-                className="w-full bg-[#c52833] hover:bg-[#a6222b] text-white font-semibold py-4 rounded-lg mt-2 transition-colors text-[15px]"
-              >
-                Submit Message
-              </button>
-
-            </form>
-          </div>
+          <ContactForm />
 
         </div>
       </section>
