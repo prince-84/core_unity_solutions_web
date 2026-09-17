@@ -28,6 +28,8 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->favicon(asset('Core Unity Logo-05.svg'))
+            ->brandLogo(asset('Core Unity Logo-05.svg'))
             ->darkMode(false)
             ->colors([
                 'primary' => Color::Amber,

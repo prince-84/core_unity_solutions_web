@@ -20,6 +20,33 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Core Unity Solutions",
   description: "Digital Marketing Agency & IT Solutions",
+  openGraph: {
+    title: "Core Unity Solutions",
+    description: "Digital Marketing Agency & IT Solutions",
+    url: siteUrl,
+    siteName: "Core Unity Solutions",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Core Unity Solutions",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Core Unity Solutions",
+    description: "Digital Marketing Agency & IT Solutions",
+    images: [
+      {
+        url: "/og-image.jpg",
+        alt: "Core Unity Solutions",
+      },
+    ],
+  },
   robots: {
     index: false,
     follow: false,
@@ -39,7 +66,11 @@ export const metadata: Metadata = {
     google: "KVm9cGHlPpa6Mk4FIC7MHgSicQuZsQ1UB83UoU31EEQ",
   },
   icons: {
-    icon: "/Core Unity Logo-05.svg",
+    icon: [
+      { url: "/Core Unity Logo-05.svg", type: "image/svg+xml" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" }
+    ],
     shortcut: "/Core Unity Logo-05.svg",
     apple: "/Core Unity Logo-05.svg",
   },
