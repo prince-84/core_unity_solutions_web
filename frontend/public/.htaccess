@@ -11,6 +11,11 @@ ErrorDocument 404 /404.html
   RewriteBase /
 
   # ----------------------------------------------------------------------
+  # Direct XML Sitemap Serving Rule (Prevents 404 and HTML Rewriting)
+  # ----------------------------------------------------------------------
+  RewriteRule ^sitemap.*\.xml$ - [L]
+
+  # ----------------------------------------------------------------------
   # 1. SSL (HTTPS) & Non-WWW Canonicalization (301 Permanent Redirects)
   # ----------------------------------------------------------------------
   # Force HTTP to HTTPS 301 Redirect
