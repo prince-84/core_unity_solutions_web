@@ -11,31 +11,38 @@ ErrorDocument 404 /404.html
   RewriteBase /
 
   # ----------------------------------------------------------------------
-  # Direct XML Sitemap Serving Rule (Prevents 404 and HTML Rewriting)
+  # 1. Canonical Domain & SSL Enforcement (301 Permanent Redirects)
+  # Forces HTTPS and canonical non-www domain (coreunitysolutions.com).
+  # Any other host (www, mail., webmail., cpanel., or any subdomain)
+  # is automatically 301 redirected to https://coreunitysolutions.com
+  # ----------------------------------------------------------------------
+  # Rule A: Subdomain / WWW Catch-All (If host is NOT coreunitysolutions.com)
+  RewriteCond %{HTTP_HOST} !^coreunitysolutions\.com$ [NC]
+  RewriteCond %{HTTP_HOST} !^localhost [NC]
+  RewriteCond %{HTTP_HOST} !^127\.0\.0\.1 [NC]
+  RewriteRule ^ https://coreunitysolutions.com%{REQUEST_URI} [R=301,L]
+
+  # Rule B: Force HTTP to HTTPS for coreunitysolutions.com
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP:X-Forwarded-Proto} =http [OR]
+  RewriteCond %{HTTP:CF-Visitor} '"scheme":"http"'
+  RewriteCond %{HTTP_HOST} !^localhost [NC]
+  RewriteCond %{HTTP_HOST} !^127\.0\.0\.1 [NC]
+  RewriteRule ^ https://coreunitysolutions.com%{REQUEST_URI} [R=301,L]
+
+  # ----------------------------------------------------------------------
+  # 2. Direct Static Files & XML Sitemap Serving
   # ----------------------------------------------------------------------
   RewriteRule ^sitemap.*\.xml$ - [L]
 
-  # ----------------------------------------------------------------------
-  # 1. SSL (HTTPS) & Non-WWW Canonicalization (301 Permanent Redirects)
-  # ----------------------------------------------------------------------
-  # Force HTTP to HTTPS 301 Redirect
-  RewriteCond %{HTTPS} off [OR]
-  RewriteCond %{HTTP:X-Forwarded-Proto} =http
-  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-
-  # Force www.coreunitysolutions.com to coreunitysolutions.com 301 Redirect
-  RewriteCond %{HTTP_HOST} ^www\.(.+) [NC]
-  RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
-
-  # ----------------------------------------------------------------------
-  # 2. Static HTML Route Rewriting
-  # ----------------------------------------------------------------------
   # If request matches existing file or folder, serve directly
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # Clean URL rewriting for static html export
+  # ----------------------------------------------------------------------
+  # 3. Clean URL rewriting for static html export
+  # ----------------------------------------------------------------------
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^(.+)$ $1.html [L]
 </IfModule>
