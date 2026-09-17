@@ -38,9 +38,9 @@ export function Navbar() {
       isSolidNav ? 'bg-black shadow-lg border-b border-white/5' : 'bg-transparent'
     }`}>
       {/* Logo */}
-      <div className="flex items-center">
+      <Link href="/" className="flex items-center">
         <Image src="/logo.png" alt="Core Unity Solutions" width={160} height={40} className="w-auto h-10 object-contain" priority />
-      </div>
+      </Link>
 
       {/* Navigation Links */}
       <div className="hidden md:flex items-center gap-6 text-sm font-medium">

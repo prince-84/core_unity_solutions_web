@@ -8,15 +8,15 @@ export function EarthGlobe() {
       {/* Gradient glow underneath earth */}
       <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-red-600/30 blur-[100px] rounded-full pointer-events-none"></div>
       
-      {/* Earth container with rotation animation */}
-      <div className="absolute -top-12 flex justify-center animate-spin-slow z-10">
+      {/* Earth container with smooth swaying motion (bright daylight side always remains on top) */}
+      <div className="absolute -top-12 flex justify-center animate-globe-float z-10">
         {/* The earth image sits partially below the viewport bottom, so we clip it with height in the parent container. */}
         <Image 
           src={globeSrc} 
           alt="Earth Globe" 
           width={600} 
           height={600}
-          className="rounded-full max-w-none opacity-90 [clip-path:circle(36%_at_50%_50%)] mask-image-gradient"
+          className="rounded-full max-w-none opacity-100 brightness-110 contrast-105 [clip-path:circle(36%_at_50%_50%)] mask-image-gradient"
           priority
         />
       </div>

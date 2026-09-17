@@ -38,6 +38,22 @@ body {
   animation: spin-slow 120s linear infinite;
 }
 
+@keyframes globe-float {
+  0% {
+    transform: rotate(-7deg) translateY(0px);
+  }
+  50% {
+    transform: rotate(7deg) translateY(-6px);
+  }
+  100% {
+    transform: rotate(-7deg) translateY(0px);
+  }
+}
+
+.animate-globe-float {
+  animation: globe-float 16s ease-in-out infinite;
+}
+
 @keyframes scroll-x {
   0% {
     transform: translateX(0);

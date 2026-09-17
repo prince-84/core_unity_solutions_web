@@ -98,9 +98,9 @@ export function Footer() {
           
           {/* Column 1: Brand & Contact */}
           <div className="flex flex-col gap-4">
-            <div className="relative w-40 h-14 mb-1">
+            <Link href="/" className="relative w-40 h-14 mb-1 block">
               <Image src="/logo.png" alt="CoreUnity Solutions" fill className="object-contain object-left" />
-            </div>
+            </Link>
             
             <div className="flex flex-col gap-1.5 text-[13px] text-gray-300 font-light leading-relaxed">
               <p>Churchill Tower, Business Bay, Dubai, UAE</p>
