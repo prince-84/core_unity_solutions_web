@@ -4,27 +4,27 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://coreunitysolutions.com/blog/</loc>
+    <loc>https://www.coreunitysolutions.com/blog/</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://coreunitysolutions.com/blog/local-business-on-google-maps/</loc>
+    <loc>https://www.coreunitysolutions.com/blog/local-business-on-google-maps/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://coreunitysolutions.com/blog/google-ads-vs-meta-ads/</loc>
+    <loc>https://www.coreunitysolutions.com/blog/google-ads-vs-meta-ads/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://coreunitysolutions.com/blog/daily-manual-tasks/</loc>
+    <loc>https://www.coreunitysolutions.com/blog/daily-manual-tasks/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://coreunitysolutions.com/blog/business-website-features/</loc>
+    <loc>https://www.coreunitysolutions.com/blog/business-website-features/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
