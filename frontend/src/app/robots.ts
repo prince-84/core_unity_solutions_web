@@ -4,16 +4,10 @@ export const dynamic = 'force-static';
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [
-      {
-        userAgent: '*',
-        disallow: '/',
-      },
-      {
-        userAgent: 'Googlebot',
-        disallow: '/',
-      },
-    ],
+    rules: {
+      userAgent: '*',
+      allow: '/',
+    },
     sitemap: 'https://coreunitysolutions.com/sitemap.xml',
   };
 }
